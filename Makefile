@@ -241,6 +241,7 @@ Makefile: smart_home_application.pro ../../../../Qt/Qt5.12.12/5.12.12/mingw73_64
 		smart_home_application.pro \
 		../../../../Qt/Qt5.12.12/5.12.12/mingw73_64/lib/Qt5Widgets.prl \
 		../../../../Qt/Qt5.12.12/5.12.12/mingw73_64/lib/Qt5Gui.prl \
+		../../../../Qt/Qt5.12.12/5.12.12/mingw73_64/lib/Qt5SerialPort.prl \
 		../../../../Qt/Qt5.12.12/5.12.12/mingw73_64/lib/Qt5Core.prl \
 		../../../../Qt/Qt5.12.12/5.12.12/mingw73_64/lib/qtmain.prl
 	$(QMAKE) -o Makefile smart_home_application.pro -spec win32-g++ "CONFIG+=debug" "CONFIG+=qml_debug"
@@ -422,6 +423,7 @@ Makefile: smart_home_application.pro ../../../../Qt/Qt5.12.12/5.12.12/mingw73_64
 smart_home_application.pro:
 ../../../../Qt/Qt5.12.12/5.12.12/mingw73_64/lib/Qt5Widgets.prl:
 ../../../../Qt/Qt5.12.12/5.12.12/mingw73_64/lib/Qt5Gui.prl:
+../../../../Qt/Qt5.12.12/5.12.12/mingw73_64/lib/Qt5SerialPort.prl:
 ../../../../Qt/Qt5.12.12/5.12.12/mingw73_64/lib/Qt5Core.prl:
 ../../../../Qt/Qt5.12.12/5.12.12/mingw73_64/lib/qtmain.prl:
 qmake: FORCE

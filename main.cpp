@@ -19,5 +19,6 @@ int main(int argc, char *argv[])
     }
     SmartHome w;
     w.show();
+    w.setFixedSize(w.size());
      return a.exec();
 }

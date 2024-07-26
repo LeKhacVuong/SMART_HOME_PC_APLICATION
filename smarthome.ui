@@ -2,12 +2,15 @@
 <ui version="4.0">
  <class>SmartHome</class>
  <widget class="QMainWindow" name="SmartHome">
+  <property name="enabled">
+   <bool>true</bool>
+  </property>
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>908</width>
-    <height>575</height>
+    <width>1006</width>
+    <height>619</height>
    </rect>
   </property>
   <property name="maximumSize">
@@ -18,6 +21,9 @@
   </property>
   <property name="windowTitle">
    <string>SmartHome</string>
+  </property>
+  <property name="autoFillBackground">
+   <bool>false</bool>
   </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QLabel" name="label_4">
@@ -37,123 +43,18 @@
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>270</y>
-      <width>878</width>
-      <height>250</height>
+      <y>310</y>
+      <width>971</width>
+      <height>271</height>
      </rect>
     </property>
-    <layout class="QHBoxLayout" name="horizontalLayout_19">
-     <item>
-      <layout class="QVBoxLayout" name="verticalLayout_3">
-       <item>
-        <layout class="QHBoxLayout" name="horizontalLayout_13">
-         <item>
-          <widget class="QCheckBox" name="checkBox_3">
-           <property name="maximumSize">
-            <size>
-             <width>30</width>
-             <height>16777215</height>
-            </size>
-           </property>
-           <property name="text">
-            <string/>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QLabel" name="label_lock_stt_text_8">
-           <property name="maximumSize">
-            <size>
-             <width>150</width>
-             <height>16777215</height>
-            </size>
-           </property>
-           <property name="font">
-            <font>
-             <weight>75</weight>
-             <bold>true</bold>
-            </font>
-           </property>
-           <property name="frameShape">
-            <enum>QFrame::NoFrame</enum>
-           </property>
-           <property name="text">
-            <string>Tự động bật đèn hành lang</string>
-           </property>
-          </widget>
-         </item>
-        </layout>
-       </item>
-       <item>
-        <layout class="QHBoxLayout" name="horizontalLayout_11">
-         <item>
-          <widget class="QPushButton" name="pushButton_7">
-           <property name="text">
-            <string>+</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QSpinBox" name="spinBox">
-           <property name="maximum">
-            <number>23</number>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QSpinBox" name="spinBox_2">
-           <property name="maximum">
-            <number>55</number>
-           </property>
-           <property name="singleStep">
-            <number>5</number>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QLabel" name="label">
-           <property name="text">
-            <string>đến</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QSpinBox" name="spinBox_3">
-           <property name="maximum">
-            <number>23</number>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QSpinBox" name="spinBox_4">
-           <property name="maximum">
-            <number>55</number>
-           </property>
-           <property name="singleStep">
-            <number>5</number>
-           </property>
-          </widget>
-         </item>
-        </layout>
-       </item>
-       <item>
-        <widget class="QPushButton" name="pushButton_10">
-         <property name="text">
-          <string>Xóa cài đặt</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QListWidget" name="listWidget"/>
-       </item>
-      </layout>
-     </item>
+    <layout class="QHBoxLayout" name="horizontalLayout_auto_setting">
      <item>
       <layout class="QVBoxLayout" name="verticalLayout_4">
        <item>
         <layout class="QHBoxLayout" name="horizontalLayout_10">
          <item>
-          <widget class="QCheckBox" name="checkBox_2">
+          <widget class="QCheckBox" name="checkBox_autoQuat">
            <property name="maximumSize">
             <size>
              <width>30</width>
@@ -169,7 +70,7 @@
           <widget class="QLabel" name="label_lock_stt_text_7">
            <property name="maximumSize">
             <size>
-             <width>150</width>
+             <width>200</width>
              <height>16777215</height>
             </size>
            </property>
@@ -192,57 +93,41 @@
        <item>
         <layout class="QHBoxLayout" name="horizontalLayout_17">
          <item>
-          <widget class="QPushButton" name="pushButton_8">
+          <widget class="QPushButton" name="pushButton_themAutoQuat">
+           <property name="maximumSize">
+            <size>
+             <width>50</width>
+             <height>16777215</height>
+            </size>
+           </property>
            <property name="text">
             <string>+</string>
            </property>
           </widget>
          </item>
          <item>
-          <widget class="QSpinBox" name="spinBox_5">
-           <property name="maximum">
-            <number>23</number>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QSpinBox" name="spinBox_6">
-           <property name="maximum">
-            <number>55</number>
-           </property>
-           <property name="singleStep">
-            <number>5</number>
-           </property>
-          </widget>
+          <widget class="QTimeEdit" name="timeEdit_autoQuatStart"/>
          </item>
          <item>
           <widget class="QLabel" name="label_2">
+           <property name="maximumSize">
+            <size>
+             <width>30</width>
+             <height>16777215</height>
+            </size>
+           </property>
            <property name="text">
             <string>đến</string>
            </property>
           </widget>
          </item>
          <item>
-          <widget class="QSpinBox" name="spinBox_7">
-           <property name="maximum">
-            <number>23</number>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QSpinBox" name="spinBox_8">
-           <property name="maximum">
-            <number>55</number>
-           </property>
-           <property name="singleStep">
-            <number>5</number>
-           </property>
-          </widget>
+          <widget class="QTimeEdit" name="timeEdit_autoQuatStop"/>
          </item>
         </layout>
        </item>
        <item>
-        <widget class="QPushButton" name="pushButton_11">
+        <widget class="QPushButton" name="pushButton_xoaAutoQuat">
          <property name="text">
           <string>Xóa cài đặt</string>
          </property>
@@ -250,6 +135,188 @@
        </item>
        <item>
         <widget class="QListWidget" name="listWidget_2"/>
+       </item>
+      </layout>
+     </item>
+     <item>
+      <layout class="QVBoxLayout" name="verticalLayout_3">
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout_13">
+         <item>
+          <widget class="QCheckBox" name="checkBox_autoDenHanhLang">
+           <property name="maximumSize">
+            <size>
+             <width>30</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="label_lock_stt_text_8">
+           <property name="maximumSize">
+            <size>
+             <width>200</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <weight>75</weight>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="frameShape">
+            <enum>QFrame::NoFrame</enum>
+           </property>
+           <property name="text">
+            <string>Tự động bật đèn hành lang</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout_11">
+         <item>
+          <widget class="QPushButton" name="pushButton_themAutoDenHanhLang">
+           <property name="maximumSize">
+            <size>
+             <width>50</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <property name="text">
+            <string>+</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QTimeEdit" name="timeEdit_autoDenHanhLangStart">
+           <property name="displayFormat">
+            <string>h:mm AP</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="label">
+           <property name="maximumSize">
+            <size>
+             <width>30</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <property name="text">
+            <string>đến</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QTimeEdit" name="timeEdit_autoDenHanhLangStop"/>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <widget class="QPushButton" name="pushButton_xoaAutoDenHL">
+         <property name="text">
+          <string>Xóa cài đặt</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QListWidget" name="listWidget"/>
+       </item>
+      </layout>
+     </item>
+     <item>
+      <layout class="QVBoxLayout" name="verticalLayout_10">
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout_21">
+         <item>
+          <widget class="QCheckBox" name="checkBox_autoDenKhach">
+           <property name="maximumSize">
+            <size>
+             <width>30</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="label_lock_stt_text_14">
+           <property name="maximumSize">
+            <size>
+             <width>200</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <weight>75</weight>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="frameShape">
+            <enum>QFrame::NoFrame</enum>
+           </property>
+           <property name="text">
+            <string>Tự động bật đèn phòng khách</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout_22">
+         <item>
+          <widget class="QPushButton" name="pushButton_themDenKhach">
+           <property name="maximumSize">
+            <size>
+             <width>50</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <property name="text">
+            <string>+</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QTimeEdit" name="timeEdit_autoDenKhachStart"/>
+         </item>
+         <item>
+          <widget class="QLabel" name="label_6">
+           <property name="maximumSize">
+            <size>
+             <width>30</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <property name="text">
+            <string>đến</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QTimeEdit" name="timeEdit_autoDenKhachStop"/>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <widget class="QPushButton" name="pushButton_xoaAutoDenKhach">
+         <property name="text">
+          <string>Xóa cài đặt</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QListWidget" name="listWidget_5"/>
        </item>
       </layout>
      </item>
@@ -274,7 +341,7 @@
           <widget class="QLabel" name="label_lock_stt_text_5">
            <property name="maximumSize">
             <size>
-             <width>150</width>
+             <width>200</width>
              <height>16777215</height>
             </size>
            </property>
@@ -288,7 +355,7 @@
             <enum>QFrame::NoFrame</enum>
            </property>
            <property name="text">
-            <string>Tự động bật đèn trong nhà</string>
+            <string>Tự động bật đèn phòng ngủ</string>
            </property>
           </widget>
          </item>
@@ -297,57 +364,41 @@
        <item>
         <layout class="QHBoxLayout" name="horizontalLayout_18">
          <item>
-          <widget class="QPushButton" name="pushButton_9">
+          <widget class="QPushButton" name="pushButton_themDenNgu">
+           <property name="maximumSize">
+            <size>
+             <width>50</width>
+             <height>16777215</height>
+            </size>
+           </property>
            <property name="text">
             <string>+</string>
            </property>
           </widget>
          </item>
          <item>
-          <widget class="QSpinBox" name="spinBox_9">
-           <property name="maximum">
-            <number>23</number>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QSpinBox" name="spinBox_10">
-           <property name="maximum">
-            <number>55</number>
-           </property>
-           <property name="singleStep">
-            <number>5</number>
-           </property>
-          </widget>
+          <widget class="QTimeEdit" name="timeEdit_autoDenNguStart"/>
          </item>
          <item>
           <widget class="QLabel" name="label_3">
+           <property name="maximumSize">
+            <size>
+             <width>30</width>
+             <height>16777215</height>
+            </size>
+           </property>
            <property name="text">
             <string>đến</string>
            </property>
           </widget>
          </item>
          <item>
-          <widget class="QSpinBox" name="spinBox_11">
-           <property name="maximum">
-            <number>23</number>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QSpinBox" name="spinBox_12">
-           <property name="maximum">
-            <number>55</number>
-           </property>
-           <property name="singleStep">
-            <number>5</number>
-           </property>
-          </widget>
+          <widget class="QTimeEdit" name="timeEdit_autoDenNguStop"/>
          </item>
         </layout>
        </item>
        <item>
-        <widget class="QPushButton" name="pushButton_12">
+        <widget class="QPushButton" name="pushButton_xoaAutoDenNgu">
          <property name="text">
           <string>Xóa cài đặt</string>
          </property>
@@ -366,7 +417,7 @@
       <x>10</x>
       <y>10</y>
       <width>411</width>
-      <height>241</height>
+      <height>111</height>
      </rect>
     </property>
     <layout class="QVBoxLayout" name="verticalLayout_8">
@@ -375,7 +426,7 @@
        <item>
         <layout class="QHBoxLayout" name="horizontalLayout">
          <item>
-          <widget class="QComboBox" name="comboBox_com_list">
+          <widget class="QComboBox" name="comboBox_danhSachCom">
            <property name="enabled">
             <bool>true</bool>
            </property>
@@ -388,7 +439,7 @@
           </widget>
          </item>
          <item>
-          <widget class="QPushButton" name="pushButton_refresh_com">
+          <widget class="QPushButton" name="pushButton_lamMoiCom">
            <property name="maximumSize">
             <size>
              <width>50</width>
@@ -403,10 +454,10 @@
         </layout>
        </item>
        <item>
-        <widget class="QPushButton" name="pushButton_connect">
+        <widget class="QPushButton" name="pushButton_ketNoi">
          <property name="font">
           <font>
-           <pointsize>12</pointsize>
+           <pointsize>10</pointsize>
           </font>
          </property>
          <property name="text">
@@ -437,7 +488,7 @@
           </widget>
          </item>
          <item>
-          <widget class="QLabel" name="label_dev_sn">
+          <widget class="QLabel" name="label_maThietBi">
            <property name="maximumSize">
             <size>
              <width>200</width>
@@ -473,7 +524,7 @@
           </widget>
          </item>
          <item>
-          <widget class="QLabel" name="label_dev_stt">
+          <widget class="QLabel" name="label_trangThai">
            <property name="maximumSize">
             <size>
              <width>200</width>
@@ -497,64 +548,10 @@
    <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
-      <x>780</x>
-      <y>10</y>
-      <width>91</width>
-      <height>161</height>
-     </rect>
-    </property>
-    <layout class="QVBoxLayout" name="verticalLayout_6">
-     <item>
-      <widget class="QPushButton" name="pushButton">
-       <property name="text">
-        <string>Mở</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QPushButton" name="pushButton_2">
-       <property name="text">
-        <string>Mở</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QPushButton" name="pushButton_3">
-       <property name="text">
-        <string>Mở</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QPushButton" name="pushButton_4">
-       <property name="text">
-        <string>Mở</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QPushButton" name="pushButton_5">
-       <property name="text">
-        <string>Mở</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QPushButton" name="pushButton_6">
-       <property name="text">
-        <string>Mở</string>
-       </property>
-      </widget>
-     </item>
-    </layout>
-   </widget>
-   <widget class="QWidget" name="layoutWidget">
-    <property name="geometry">
-     <rect>
       <x>430</x>
       <y>10</y>
-      <width>341</width>
-      <height>241</height>
+      <width>551</width>
+      <height>288</height>
      </rect>
     </property>
     <layout class="QVBoxLayout" name="verticalLayout_7">
@@ -577,12 +574,25 @@
         </widget>
        </item>
        <item>
-        <widget class="QLabel" name="label_lock_stt">
+        <widget class="QLabel" name="label_khoaCuaChinh">
+         <property name="maximumSize">
+          <size>
+           <width>250</width>
+           <height>16777215</height>
+          </size>
+         </property>
          <property name="frameShape">
           <enum>QFrame::Box</enum>
          </property>
          <property name="text">
           <string>xxx</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="pushButton_khoaCua">
+         <property name="text">
+          <string>Mở</string>
          </property>
         </widget>
        </item>
@@ -607,12 +617,25 @@
         </widget>
        </item>
        <item>
-        <widget class="QLabel" name="label_lock_stt_5">
+        <widget class="QLabel" name="label_denNgu">
+         <property name="maximumSize">
+          <size>
+           <width>250</width>
+           <height>16777215</height>
+          </size>
+         </property>
          <property name="frameShape">
           <enum>QFrame::Box</enum>
          </property>
          <property name="text">
           <string>xxx</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="pushButton_denNgu">
+         <property name="text">
+          <string>Mở</string>
          </property>
         </widget>
        </item>
@@ -637,12 +660,25 @@
         </widget>
        </item>
        <item>
-        <widget class="QLabel" name="label_lock_stt_8">
+        <widget class="QLabel" name="label_quatNgu">
+         <property name="maximumSize">
+          <size>
+           <width>250</width>
+           <height>16777215</height>
+          </size>
+         </property>
          <property name="frameShape">
           <enum>QFrame::Box</enum>
          </property>
          <property name="text">
           <string>xxx</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="pushButton_quatNgu">
+         <property name="text">
+          <string>Mở</string>
          </property>
         </widget>
        </item>
@@ -667,12 +703,25 @@
         </widget>
        </item>
        <item>
-        <widget class="QLabel" name="label_lock_stt_9">
+        <widget class="QLabel" name="label_denKhach">
+         <property name="maximumSize">
+          <size>
+           <width>250</width>
+           <height>16777215</height>
+          </size>
+         </property>
          <property name="frameShape">
           <enum>QFrame::Box</enum>
          </property>
          <property name="text">
           <string>xxx</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="pushButton_denKhach">
+         <property name="text">
+          <string>Mở</string>
          </property>
         </widget>
        </item>
@@ -697,12 +746,25 @@
         </widget>
        </item>
        <item>
-        <widget class="QLabel" name="label_lock_stt_10">
+        <widget class="QLabel" name="label_quatKhach">
+         <property name="maximumSize">
+          <size>
+           <width>250</width>
+           <height>16777215</height>
+          </size>
+         </property>
          <property name="frameShape">
           <enum>QFrame::Box</enum>
          </property>
          <property name="text">
           <string>xxx</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="pushButton_quatKhach">
+         <property name="text">
+          <string>Mở</string>
          </property>
         </widget>
        </item>
@@ -727,7 +789,13 @@
         </widget>
        </item>
        <item>
-        <widget class="QLabel" name="label_lock_stt_6">
+        <widget class="QLabel" name="label_denHanhLang">
+         <property name="maximumSize">
+          <size>
+           <width>250</width>
+           <height>16777215</height>
+          </size>
+         </property>
          <property name="frameShape">
           <enum>QFrame::Box</enum>
          </property>
@@ -735,6 +803,67 @@
           <string>xxx</string>
          </property>
         </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="pushButton_denHanhLang">
+         <property name="text">
+          <string>Mở</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item>
+      <layout class="QHBoxLayout" name="horizontalLayout_23">
+       <item>
+        <widget class="QLabel" name="label_lock_stt_text_15">
+         <property name="font">
+          <font>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="frameShape">
+          <enum>QFrame::NoFrame</enum>
+         </property>
+         <property name="text">
+          <string>Thời gian thực dưới thiết bị</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="label_timeTb">
+         <property name="maximumSize">
+          <size>
+           <width>250</width>
+           <height>16777215</height>
+          </size>
+         </property>
+         <property name="frameShape">
+          <enum>QFrame::Box</enum>
+         </property>
+         <property name="text">
+          <string>xxx</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout_24">
+         <item>
+          <widget class="QPushButton" name="pushButton_docTimeTb">
+           <property name="text">
+            <string>Đọc</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="pushButton_ghiTimeTb">
+           <property name="text">
+            <string>Ghi</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
        </item>
       </layout>
      </item>
@@ -757,12 +886,28 @@
         </widget>
        </item>
        <item>
-        <widget class="QLabel" name="label_lock_stt_2">
+        <widget class="QLabel" name="label_doAm">
+         <property name="maximumSize">
+          <size>
+           <width>250</width>
+           <height>16777215</height>
+          </size>
+         </property>
          <property name="frameShape">
           <enum>QFrame::Box</enum>
          </property>
          <property name="text">
           <string>xxx</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="pushButton_denHanhLang_2">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
+         <property name="text">
+          <string/>
          </property>
         </widget>
        </item>
@@ -787,12 +932,28 @@
         </widget>
        </item>
        <item>
-        <widget class="QLabel" name="label_lock_stt_3">
+        <widget class="QLabel" name="label_nhietDo">
+         <property name="maximumSize">
+          <size>
+           <width>250</width>
+           <height>16777215</height>
+          </size>
+         </property>
          <property name="frameShape">
           <enum>QFrame::Box</enum>
          </property>
          <property name="text">
           <string>xxx</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="pushButton_denHanhLang_3">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
+         <property name="text">
+          <string/>
          </property>
         </widget>
        </item>
@@ -817,7 +978,13 @@
         </widget>
        </item>
        <item>
-        <widget class="QLabel" name="label_lock_stt_4">
+        <widget class="QLabel" name="label_khiGas">
+         <property name="maximumSize">
+          <size>
+           <width>250</width>
+           <height>16777215</height>
+          </size>
+         </property>
          <property name="frameShape">
           <enum>QFrame::Box</enum>
          </property>
@@ -826,7 +993,73 @@
          </property>
         </widget>
        </item>
+       <item>
+        <widget class="QPushButton" name="pushButton_denHanhLang_4">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+        </widget>
+       </item>
       </layout>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QLabel" name="label_logging">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>160</y>
+      <width>411</width>
+      <height>141</height>
+     </rect>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::Box</enum>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QWidget" name="">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>130</y>
+      <width>101</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <layout class="QHBoxLayout" name="horizontalLayout_25">
+     <item>
+      <widget class="QLabel" name="label_7">
+       <property name="maximumSize">
+        <size>
+         <width>16777215</width>
+         <height>50</height>
+        </size>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>10</pointsize>
+        </font>
+       </property>
+       <property name="frameShape">
+        <enum>QFrame::Box</enum>
+       </property>
+       <property name="text">
+        <string>Logging</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QCheckBox" name="checkBox_3">
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
      </item>
     </layout>
    </widget>
@@ -836,7 +1069,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>908</width>
+     <width>1006</width>
      <height>20</height>
     </rect>
    </property>

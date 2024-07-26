@@ -6,11 +6,38 @@ SmartHome::SmartHome(QWidget *parent)
     , ui(new Ui::SmartHome)
 {
     ui->setupUi(this);
-    ui->verticalLayout_7->setEnabled(false);
+
+    ui->comboBox_danhSachCom->clear();
+    const auto serialPortInfos = QSerialPortInfo::availablePorts();
+    for (const QSerialPortInfo &info : serialPortInfos) {
+        if(info.description().contains("USB")){
+            ui->comboBox_danhSachCom->addItem(info.portName() + ": " + " " + info.description());
+        }
+    }
 }
 
 SmartHome::~SmartHome()
 {
     delete ui;
 }
+
+
+void SmartHome::on_pushButton_lamMoiCom_clicked()
+{
+    ui->comboBox_danhSachCom->clear();
+    const auto serialPortInfos = QSerialPortInfo::availablePorts();
+    for (const QSerialPortInfo &info : serialPortInfos) {
+        if(info.description().contains("USB")){
+            ui->comboBox_danhSachCom->addItem(info.portName() + ": " + " " + info.description());
+        }
+    }
+}
+
+void SmartHome::on_pushButton_themAutoQuat_clicked()
+{
+    startTimeEdit->show();
+    endTimeEdit->show();
+}
+
+
 
