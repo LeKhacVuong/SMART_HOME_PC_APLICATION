@@ -35,7 +35,7 @@ public:
     QAction *actionPhi_n_b_n_ph_n_m_m;
     QWidget *centralwidget;
     QLabel *label_4;
-    QWidget *widget;
+    QWidget *layoutWidget;
     QHBoxLayout *horizontalLayout_19;
     QVBoxLayout *verticalLayout_3;
     QHBoxLayout *horizontalLayout_13;
@@ -48,6 +48,7 @@ public:
     QLabel *label;
     QSpinBox *spinBox_3;
     QSpinBox *spinBox_4;
+    QPushButton *pushButton_10;
     QListWidget *listWidget;
     QVBoxLayout *verticalLayout_4;
     QHBoxLayout *horizontalLayout_10;
@@ -60,6 +61,7 @@ public:
     QLabel *label_2;
     QSpinBox *spinBox_7;
     QSpinBox *spinBox_8;
+    QPushButton *pushButton_11;
     QListWidget *listWidget_2;
     QVBoxLayout *verticalLayout_5;
     QHBoxLayout *horizontalLayout_8;
@@ -72,8 +74,9 @@ public:
     QLabel *label_3;
     QSpinBox *spinBox_11;
     QSpinBox *spinBox_12;
+    QPushButton *pushButton_12;
     QListWidget *listWidget_3;
-    QWidget *widget1;
+    QWidget *layoutWidget1;
     QVBoxLayout *verticalLayout_8;
     QVBoxLayout *verticalLayout;
     QHBoxLayout *horizontalLayout;
@@ -87,7 +90,7 @@ public:
     QHBoxLayout *horizontalLayout_3;
     QLabel *label_dev_stt_text;
     QLabel *label_dev_stt;
-    QWidget *widget2;
+    QWidget *layoutWidget2;
     QVBoxLayout *verticalLayout_6;
     QPushButton *pushButton;
     QPushButton *pushButton_2;
@@ -95,8 +98,7 @@ public:
     QPushButton *pushButton_4;
     QPushButton *pushButton_5;
     QPushButton *pushButton_6;
-    QLabel *label_5;
-    QWidget *widget3;
+    QWidget *layoutWidget3;
     QVBoxLayout *verticalLayout_7;
     QHBoxLayout *horizontalLayout_4;
     QLabel *label_lock_stt_text;
@@ -134,7 +136,7 @@ public:
     {
         if (SmartHome->objectName().isEmpty())
             SmartHome->setObjectName(QString::fromUtf8("SmartHome"));
-        SmartHome->resize(732, 573);
+        SmartHome->resize(908, 575);
         SmartHome->setMaximumSize(QSize(16777215, 16777215));
         actionTh_ng_s_ho_t_ng = new QAction(SmartHome);
         actionTh_ng_s_ho_t_ng->setObjectName(QString::fromUtf8("actionTh_ng_s_ho_t_ng"));
@@ -145,23 +147,23 @@ public:
         label_4 = new QLabel(centralwidget);
         label_4->setObjectName(QString::fromUtf8("label_4"));
         label_4->setGeometry(QRect(750, 240, 47, 13));
-        widget = new QWidget(centralwidget);
-        widget->setObjectName(QString::fromUtf8("widget"));
-        widget->setGeometry(QRect(10, 270, 701, 250));
-        horizontalLayout_19 = new QHBoxLayout(widget);
+        layoutWidget = new QWidget(centralwidget);
+        layoutWidget->setObjectName(QString::fromUtf8("layoutWidget"));
+        layoutWidget->setGeometry(QRect(10, 270, 878, 250));
+        horizontalLayout_19 = new QHBoxLayout(layoutWidget);
         horizontalLayout_19->setObjectName(QString::fromUtf8("horizontalLayout_19"));
         horizontalLayout_19->setContentsMargins(0, 0, 0, 0);
         verticalLayout_3 = new QVBoxLayout();
         verticalLayout_3->setObjectName(QString::fromUtf8("verticalLayout_3"));
         horizontalLayout_13 = new QHBoxLayout();
         horizontalLayout_13->setObjectName(QString::fromUtf8("horizontalLayout_13"));
-        checkBox_3 = new QCheckBox(widget);
+        checkBox_3 = new QCheckBox(layoutWidget);
         checkBox_3->setObjectName(QString::fromUtf8("checkBox_3"));
         checkBox_3->setMaximumSize(QSize(30, 16777215));
 
         horizontalLayout_13->addWidget(checkBox_3);
 
-        label_lock_stt_text_8 = new QLabel(widget);
+        label_lock_stt_text_8 = new QLabel(layoutWidget);
         label_lock_stt_text_8->setObjectName(QString::fromUtf8("label_lock_stt_text_8"));
         label_lock_stt_text_8->setMaximumSize(QSize(150, 16777215));
         QFont font;
@@ -177,36 +179,36 @@ public:
 
         horizontalLayout_11 = new QHBoxLayout();
         horizontalLayout_11->setObjectName(QString::fromUtf8("horizontalLayout_11"));
-        pushButton_7 = new QPushButton(widget);
+        pushButton_7 = new QPushButton(layoutWidget);
         pushButton_7->setObjectName(QString::fromUtf8("pushButton_7"));
 
         horizontalLayout_11->addWidget(pushButton_7);
 
-        spinBox = new QSpinBox(widget);
+        spinBox = new QSpinBox(layoutWidget);
         spinBox->setObjectName(QString::fromUtf8("spinBox"));
         spinBox->setMaximum(23);
 
         horizontalLayout_11->addWidget(spinBox);
 
-        spinBox_2 = new QSpinBox(widget);
+        spinBox_2 = new QSpinBox(layoutWidget);
         spinBox_2->setObjectName(QString::fromUtf8("spinBox_2"));
         spinBox_2->setMaximum(55);
         spinBox_2->setSingleStep(5);
 
         horizontalLayout_11->addWidget(spinBox_2);
 
-        label = new QLabel(widget);
+        label = new QLabel(layoutWidget);
         label->setObjectName(QString::fromUtf8("label"));
 
         horizontalLayout_11->addWidget(label);
 
-        spinBox_3 = new QSpinBox(widget);
+        spinBox_3 = new QSpinBox(layoutWidget);
         spinBox_3->setObjectName(QString::fromUtf8("spinBox_3"));
         spinBox_3->setMaximum(23);
 
         horizontalLayout_11->addWidget(spinBox_3);
 
-        spinBox_4 = new QSpinBox(widget);
+        spinBox_4 = new QSpinBox(layoutWidget);
         spinBox_4->setObjectName(QString::fromUtf8("spinBox_4"));
         spinBox_4->setMaximum(55);
         spinBox_4->setSingleStep(5);
@@ -216,7 +218,12 @@ public:
 
         verticalLayout_3->addLayout(horizontalLayout_11);
 
-        listWidget = new QListWidget(widget);
+        pushButton_10 = new QPushButton(layoutWidget);
+        pushButton_10->setObjectName(QString::fromUtf8("pushButton_10"));
+
+        verticalLayout_3->addWidget(pushButton_10);
+
+        listWidget = new QListWidget(layoutWidget);
         listWidget->setObjectName(QString::fromUtf8("listWidget"));
 
         verticalLayout_3->addWidget(listWidget);
@@ -228,13 +235,13 @@ public:
         verticalLayout_4->setObjectName(QString::fromUtf8("verticalLayout_4"));
         horizontalLayout_10 = new QHBoxLayout();
         horizontalLayout_10->setObjectName(QString::fromUtf8("horizontalLayout_10"));
-        checkBox_2 = new QCheckBox(widget);
+        checkBox_2 = new QCheckBox(layoutWidget);
         checkBox_2->setObjectName(QString::fromUtf8("checkBox_2"));
         checkBox_2->setMaximumSize(QSize(30, 16777215));
 
         horizontalLayout_10->addWidget(checkBox_2);
 
-        label_lock_stt_text_7 = new QLabel(widget);
+        label_lock_stt_text_7 = new QLabel(layoutWidget);
         label_lock_stt_text_7->setObjectName(QString::fromUtf8("label_lock_stt_text_7"));
         label_lock_stt_text_7->setMaximumSize(QSize(150, 16777215));
         label_lock_stt_text_7->setFont(font);
@@ -247,36 +254,36 @@ public:
 
         horizontalLayout_17 = new QHBoxLayout();
         horizontalLayout_17->setObjectName(QString::fromUtf8("horizontalLayout_17"));
-        pushButton_8 = new QPushButton(widget);
+        pushButton_8 = new QPushButton(layoutWidget);
         pushButton_8->setObjectName(QString::fromUtf8("pushButton_8"));
 
         horizontalLayout_17->addWidget(pushButton_8);
 
-        spinBox_5 = new QSpinBox(widget);
+        spinBox_5 = new QSpinBox(layoutWidget);
         spinBox_5->setObjectName(QString::fromUtf8("spinBox_5"));
         spinBox_5->setMaximum(23);
 
         horizontalLayout_17->addWidget(spinBox_5);
 
-        spinBox_6 = new QSpinBox(widget);
+        spinBox_6 = new QSpinBox(layoutWidget);
         spinBox_6->setObjectName(QString::fromUtf8("spinBox_6"));
         spinBox_6->setMaximum(55);
         spinBox_6->setSingleStep(5);
 
         horizontalLayout_17->addWidget(spinBox_6);
 
-        label_2 = new QLabel(widget);
+        label_2 = new QLabel(layoutWidget);
         label_2->setObjectName(QString::fromUtf8("label_2"));
 
         horizontalLayout_17->addWidget(label_2);
 
-        spinBox_7 = new QSpinBox(widget);
+        spinBox_7 = new QSpinBox(layoutWidget);
         spinBox_7->setObjectName(QString::fromUtf8("spinBox_7"));
         spinBox_7->setMaximum(23);
 
         horizontalLayout_17->addWidget(spinBox_7);
 
-        spinBox_8 = new QSpinBox(widget);
+        spinBox_8 = new QSpinBox(layoutWidget);
         spinBox_8->setObjectName(QString::fromUtf8("spinBox_8"));
         spinBox_8->setMaximum(55);
         spinBox_8->setSingleStep(5);
@@ -286,7 +293,12 @@ public:
 
         verticalLayout_4->addLayout(horizontalLayout_17);
 
-        listWidget_2 = new QListWidget(widget);
+        pushButton_11 = new QPushButton(layoutWidget);
+        pushButton_11->setObjectName(QString::fromUtf8("pushButton_11"));
+
+        verticalLayout_4->addWidget(pushButton_11);
+
+        listWidget_2 = new QListWidget(layoutWidget);
         listWidget_2->setObjectName(QString::fromUtf8("listWidget_2"));
 
         verticalLayout_4->addWidget(listWidget_2);
@@ -298,13 +310,13 @@ public:
         verticalLayout_5->setObjectName(QString::fromUtf8("verticalLayout_5"));
         horizontalLayout_8 = new QHBoxLayout();
         horizontalLayout_8->setObjectName(QString::fromUtf8("horizontalLayout_8"));
-        checkBox = new QCheckBox(widget);
+        checkBox = new QCheckBox(layoutWidget);
         checkBox->setObjectName(QString::fromUtf8("checkBox"));
         checkBox->setMaximumSize(QSize(30, 16777215));
 
         horizontalLayout_8->addWidget(checkBox);
 
-        label_lock_stt_text_5 = new QLabel(widget);
+        label_lock_stt_text_5 = new QLabel(layoutWidget);
         label_lock_stt_text_5->setObjectName(QString::fromUtf8("label_lock_stt_text_5"));
         label_lock_stt_text_5->setMaximumSize(QSize(150, 16777215));
         label_lock_stt_text_5->setFont(font);
@@ -317,36 +329,36 @@ public:
 
         horizontalLayout_18 = new QHBoxLayout();
         horizontalLayout_18->setObjectName(QString::fromUtf8("horizontalLayout_18"));
-        pushButton_9 = new QPushButton(widget);
+        pushButton_9 = new QPushButton(layoutWidget);
         pushButton_9->setObjectName(QString::fromUtf8("pushButton_9"));
 
         horizontalLayout_18->addWidget(pushButton_9);
 
-        spinBox_9 = new QSpinBox(widget);
+        spinBox_9 = new QSpinBox(layoutWidget);
         spinBox_9->setObjectName(QString::fromUtf8("spinBox_9"));
         spinBox_9->setMaximum(23);
 
         horizontalLayout_18->addWidget(spinBox_9);
 
-        spinBox_10 = new QSpinBox(widget);
+        spinBox_10 = new QSpinBox(layoutWidget);
         spinBox_10->setObjectName(QString::fromUtf8("spinBox_10"));
         spinBox_10->setMaximum(55);
         spinBox_10->setSingleStep(5);
 
         horizontalLayout_18->addWidget(spinBox_10);
 
-        label_3 = new QLabel(widget);
+        label_3 = new QLabel(layoutWidget);
         label_3->setObjectName(QString::fromUtf8("label_3"));
 
         horizontalLayout_18->addWidget(label_3);
 
-        spinBox_11 = new QSpinBox(widget);
+        spinBox_11 = new QSpinBox(layoutWidget);
         spinBox_11->setObjectName(QString::fromUtf8("spinBox_11"));
         spinBox_11->setMaximum(23);
 
         horizontalLayout_18->addWidget(spinBox_11);
 
-        spinBox_12 = new QSpinBox(widget);
+        spinBox_12 = new QSpinBox(layoutWidget);
         spinBox_12->setObjectName(QString::fromUtf8("spinBox_12"));
         spinBox_12->setMaximum(55);
         spinBox_12->setSingleStep(5);
@@ -356,7 +368,12 @@ public:
 
         verticalLayout_5->addLayout(horizontalLayout_18);
 
-        listWidget_3 = new QListWidget(widget);
+        pushButton_12 = new QPushButton(layoutWidget);
+        pushButton_12->setObjectName(QString::fromUtf8("pushButton_12"));
+
+        verticalLayout_5->addWidget(pushButton_12);
+
+        listWidget_3 = new QListWidget(layoutWidget);
         listWidget_3->setObjectName(QString::fromUtf8("listWidget_3"));
 
         verticalLayout_5->addWidget(listWidget_3);
@@ -364,24 +381,24 @@ public:
 
         horizontalLayout_19->addLayout(verticalLayout_5);
 
-        widget1 = new QWidget(centralwidget);
-        widget1->setObjectName(QString::fromUtf8("widget1"));
-        widget1->setGeometry(QRect(10, 20, 261, 241));
-        verticalLayout_8 = new QVBoxLayout(widget1);
+        layoutWidget1 = new QWidget(centralwidget);
+        layoutWidget1->setObjectName(QString::fromUtf8("layoutWidget1"));
+        layoutWidget1->setGeometry(QRect(10, 10, 411, 241));
+        verticalLayout_8 = new QVBoxLayout(layoutWidget1);
         verticalLayout_8->setObjectName(QString::fromUtf8("verticalLayout_8"));
         verticalLayout_8->setContentsMargins(0, 0, 0, 0);
         verticalLayout = new QVBoxLayout();
         verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
         horizontalLayout = new QHBoxLayout();
         horizontalLayout->setObjectName(QString::fromUtf8("horizontalLayout"));
-        comboBox_com_list = new QComboBox(widget1);
+        comboBox_com_list = new QComboBox(layoutWidget1);
         comboBox_com_list->setObjectName(QString::fromUtf8("comboBox_com_list"));
         comboBox_com_list->setEnabled(true);
         comboBox_com_list->setEditable(false);
 
         horizontalLayout->addWidget(comboBox_com_list);
 
-        pushButton_refresh_com = new QPushButton(widget1);
+        pushButton_refresh_com = new QPushButton(layoutWidget1);
         pushButton_refresh_com->setObjectName(QString::fromUtf8("pushButton_refresh_com"));
         pushButton_refresh_com->setMaximumSize(QSize(50, 25));
 
@@ -390,7 +407,7 @@ public:
 
         verticalLayout->addLayout(horizontalLayout);
 
-        pushButton_connect = new QPushButton(widget1);
+        pushButton_connect = new QPushButton(layoutWidget1);
         pushButton_connect->setObjectName(QString::fromUtf8("pushButton_connect"));
         QFont font1;
         font1.setPointSize(12);
@@ -405,15 +422,16 @@ public:
         verticalLayout_2->setObjectName(QString::fromUtf8("verticalLayout_2"));
         horizontalLayout_2 = new QHBoxLayout();
         horizontalLayout_2->setObjectName(QString::fromUtf8("horizontalLayout_2"));
-        label_dev_sn_text = new QLabel(widget1);
+        label_dev_sn_text = new QLabel(layoutWidget1);
         label_dev_sn_text->setObjectName(QString::fromUtf8("label_dev_sn_text"));
         label_dev_sn_text->setFont(font);
         label_dev_sn_text->setFrameShape(QFrame::NoFrame);
 
         horizontalLayout_2->addWidget(label_dev_sn_text);
 
-        label_dev_sn = new QLabel(widget1);
+        label_dev_sn = new QLabel(layoutWidget1);
         label_dev_sn->setObjectName(QString::fromUtf8("label_dev_sn"));
+        label_dev_sn->setMaximumSize(QSize(200, 35));
         label_dev_sn->setFrameShape(QFrame::Box);
 
         horizontalLayout_2->addWidget(label_dev_sn);
@@ -423,15 +441,16 @@ public:
 
         horizontalLayout_3 = new QHBoxLayout();
         horizontalLayout_3->setObjectName(QString::fromUtf8("horizontalLayout_3"));
-        label_dev_stt_text = new QLabel(widget1);
+        label_dev_stt_text = new QLabel(layoutWidget1);
         label_dev_stt_text->setObjectName(QString::fromUtf8("label_dev_stt_text"));
         label_dev_stt_text->setFont(font);
         label_dev_stt_text->setFrameShape(QFrame::NoFrame);
 
         horizontalLayout_3->addWidget(label_dev_stt_text);
 
-        label_dev_stt = new QLabel(widget1);
+        label_dev_stt = new QLabel(layoutWidget1);
         label_dev_stt->setObjectName(QString::fromUtf8("label_dev_stt"));
+        label_dev_stt->setMaximumSize(QSize(200, 35));
         label_dev_stt->setFrameShape(QFrame::Box);
 
         horizontalLayout_3->addWidget(label_dev_stt);
@@ -442,63 +461,58 @@ public:
 
         verticalLayout_8->addLayout(verticalLayout_2);
 
-        widget2 = new QWidget(centralwidget);
-        widget2->setObjectName(QString::fromUtf8("widget2"));
-        widget2->setGeometry(QRect(630, 20, 82, 215));
-        verticalLayout_6 = new QVBoxLayout(widget2);
+        layoutWidget2 = new QWidget(centralwidget);
+        layoutWidget2->setObjectName(QString::fromUtf8("layoutWidget2"));
+        layoutWidget2->setGeometry(QRect(780, 10, 91, 161));
+        verticalLayout_6 = new QVBoxLayout(layoutWidget2);
         verticalLayout_6->setObjectName(QString::fromUtf8("verticalLayout_6"));
         verticalLayout_6->setContentsMargins(0, 0, 0, 0);
-        pushButton = new QPushButton(widget2);
+        pushButton = new QPushButton(layoutWidget2);
         pushButton->setObjectName(QString::fromUtf8("pushButton"));
 
         verticalLayout_6->addWidget(pushButton);
 
-        pushButton_2 = new QPushButton(widget2);
+        pushButton_2 = new QPushButton(layoutWidget2);
         pushButton_2->setObjectName(QString::fromUtf8("pushButton_2"));
 
         verticalLayout_6->addWidget(pushButton_2);
 
-        pushButton_3 = new QPushButton(widget2);
+        pushButton_3 = new QPushButton(layoutWidget2);
         pushButton_3->setObjectName(QString::fromUtf8("pushButton_3"));
 
         verticalLayout_6->addWidget(pushButton_3);
 
-        pushButton_4 = new QPushButton(widget2);
+        pushButton_4 = new QPushButton(layoutWidget2);
         pushButton_4->setObjectName(QString::fromUtf8("pushButton_4"));
 
         verticalLayout_6->addWidget(pushButton_4);
 
-        pushButton_5 = new QPushButton(widget2);
+        pushButton_5 = new QPushButton(layoutWidget2);
         pushButton_5->setObjectName(QString::fromUtf8("pushButton_5"));
 
         verticalLayout_6->addWidget(pushButton_5);
 
-        pushButton_6 = new QPushButton(widget2);
+        pushButton_6 = new QPushButton(layoutWidget2);
         pushButton_6->setObjectName(QString::fromUtf8("pushButton_6"));
 
         verticalLayout_6->addWidget(pushButton_6);
 
-        label_5 = new QLabel(widget2);
-        label_5->setObjectName(QString::fromUtf8("label_5"));
-
-        verticalLayout_6->addWidget(label_5);
-
-        widget3 = new QWidget(centralwidget);
-        widget3->setObjectName(QString::fromUtf8("widget3"));
-        widget3->setGeometry(QRect(290, 21, 331, 241));
-        verticalLayout_7 = new QVBoxLayout(widget3);
+        layoutWidget3 = new QWidget(centralwidget);
+        layoutWidget3->setObjectName(QString::fromUtf8("layoutWidget3"));
+        layoutWidget3->setGeometry(QRect(430, 10, 341, 241));
+        verticalLayout_7 = new QVBoxLayout(layoutWidget3);
         verticalLayout_7->setObjectName(QString::fromUtf8("verticalLayout_7"));
         verticalLayout_7->setContentsMargins(0, 0, 0, 0);
         horizontalLayout_4 = new QHBoxLayout();
         horizontalLayout_4->setObjectName(QString::fromUtf8("horizontalLayout_4"));
-        label_lock_stt_text = new QLabel(widget3);
+        label_lock_stt_text = new QLabel(layoutWidget3);
         label_lock_stt_text->setObjectName(QString::fromUtf8("label_lock_stt_text"));
         label_lock_stt_text->setFont(font);
         label_lock_stt_text->setFrameShape(QFrame::NoFrame);
 
         horizontalLayout_4->addWidget(label_lock_stt_text);
 
-        label_lock_stt = new QLabel(widget3);
+        label_lock_stt = new QLabel(layoutWidget3);
         label_lock_stt->setObjectName(QString::fromUtf8("label_lock_stt"));
         label_lock_stt->setFrameShape(QFrame::Box);
 
@@ -509,14 +523,14 @@ public:
 
         horizontalLayout_9 = new QHBoxLayout();
         horizontalLayout_9->setObjectName(QString::fromUtf8("horizontalLayout_9"));
-        label_lock_stt_text_9 = new QLabel(widget3);
+        label_lock_stt_text_9 = new QLabel(layoutWidget3);
         label_lock_stt_text_9->setObjectName(QString::fromUtf8("label_lock_stt_text_9"));
         label_lock_stt_text_9->setFont(font);
         label_lock_stt_text_9->setFrameShape(QFrame::NoFrame);
 
         horizontalLayout_9->addWidget(label_lock_stt_text_9);
 
-        label_lock_stt_5 = new QLabel(widget3);
+        label_lock_stt_5 = new QLabel(layoutWidget3);
         label_lock_stt_5->setObjectName(QString::fromUtf8("label_lock_stt_5"));
         label_lock_stt_5->setFrameShape(QFrame::Box);
 
@@ -527,14 +541,14 @@ public:
 
         horizontalLayout_14 = new QHBoxLayout();
         horizontalLayout_14->setObjectName(QString::fromUtf8("horizontalLayout_14"));
-        label_lock_stt_text_11 = new QLabel(widget3);
+        label_lock_stt_text_11 = new QLabel(layoutWidget3);
         label_lock_stt_text_11->setObjectName(QString::fromUtf8("label_lock_stt_text_11"));
         label_lock_stt_text_11->setFont(font);
         label_lock_stt_text_11->setFrameShape(QFrame::NoFrame);
 
         horizontalLayout_14->addWidget(label_lock_stt_text_11);
 
-        label_lock_stt_8 = new QLabel(widget3);
+        label_lock_stt_8 = new QLabel(layoutWidget3);
         label_lock_stt_8->setObjectName(QString::fromUtf8("label_lock_stt_8"));
         label_lock_stt_8->setFrameShape(QFrame::Box);
 
@@ -545,14 +559,14 @@ public:
 
         horizontalLayout_15 = new QHBoxLayout();
         horizontalLayout_15->setObjectName(QString::fromUtf8("horizontalLayout_15"));
-        label_lock_stt_text_12 = new QLabel(widget3);
+        label_lock_stt_text_12 = new QLabel(layoutWidget3);
         label_lock_stt_text_12->setObjectName(QString::fromUtf8("label_lock_stt_text_12"));
         label_lock_stt_text_12->setFont(font);
         label_lock_stt_text_12->setFrameShape(QFrame::NoFrame);
 
         horizontalLayout_15->addWidget(label_lock_stt_text_12);
 
-        label_lock_stt_9 = new QLabel(widget3);
+        label_lock_stt_9 = new QLabel(layoutWidget3);
         label_lock_stt_9->setObjectName(QString::fromUtf8("label_lock_stt_9"));
         label_lock_stt_9->setFrameShape(QFrame::Box);
 
@@ -563,14 +577,14 @@ public:
 
         horizontalLayout_16 = new QHBoxLayout();
         horizontalLayout_16->setObjectName(QString::fromUtf8("horizontalLayout_16"));
-        label_lock_stt_text_13 = new QLabel(widget3);
+        label_lock_stt_text_13 = new QLabel(layoutWidget3);
         label_lock_stt_text_13->setObjectName(QString::fromUtf8("label_lock_stt_text_13"));
         label_lock_stt_text_13->setFont(font);
         label_lock_stt_text_13->setFrameShape(QFrame::NoFrame);
 
         horizontalLayout_16->addWidget(label_lock_stt_text_13);
 
-        label_lock_stt_10 = new QLabel(widget3);
+        label_lock_stt_10 = new QLabel(layoutWidget3);
         label_lock_stt_10->setObjectName(QString::fromUtf8("label_lock_stt_10"));
         label_lock_stt_10->setFrameShape(QFrame::Box);
 
@@ -581,14 +595,14 @@ public:
 
         horizontalLayout_12 = new QHBoxLayout();
         horizontalLayout_12->setObjectName(QString::fromUtf8("horizontalLayout_12"));
-        label_lock_stt_text_10 = new QLabel(widget3);
+        label_lock_stt_text_10 = new QLabel(layoutWidget3);
         label_lock_stt_text_10->setObjectName(QString::fromUtf8("label_lock_stt_text_10"));
         label_lock_stt_text_10->setFont(font);
         label_lock_stt_text_10->setFrameShape(QFrame::NoFrame);
 
         horizontalLayout_12->addWidget(label_lock_stt_text_10);
 
-        label_lock_stt_6 = new QLabel(widget3);
+        label_lock_stt_6 = new QLabel(layoutWidget3);
         label_lock_stt_6->setObjectName(QString::fromUtf8("label_lock_stt_6"));
         label_lock_stt_6->setFrameShape(QFrame::Box);
 
@@ -599,14 +613,14 @@ public:
 
         horizontalLayout_5 = new QHBoxLayout();
         horizontalLayout_5->setObjectName(QString::fromUtf8("horizontalLayout_5"));
-        label_lock_stt_text_2 = new QLabel(widget3);
+        label_lock_stt_text_2 = new QLabel(layoutWidget3);
         label_lock_stt_text_2->setObjectName(QString::fromUtf8("label_lock_stt_text_2"));
         label_lock_stt_text_2->setFont(font);
         label_lock_stt_text_2->setFrameShape(QFrame::NoFrame);
 
         horizontalLayout_5->addWidget(label_lock_stt_text_2);
 
-        label_lock_stt_2 = new QLabel(widget3);
+        label_lock_stt_2 = new QLabel(layoutWidget3);
         label_lock_stt_2->setObjectName(QString::fromUtf8("label_lock_stt_2"));
         label_lock_stt_2->setFrameShape(QFrame::Box);
 
@@ -617,14 +631,14 @@ public:
 
         horizontalLayout_6 = new QHBoxLayout();
         horizontalLayout_6->setObjectName(QString::fromUtf8("horizontalLayout_6"));
-        label_lock_stt_text_3 = new QLabel(widget3);
+        label_lock_stt_text_3 = new QLabel(layoutWidget3);
         label_lock_stt_text_3->setObjectName(QString::fromUtf8("label_lock_stt_text_3"));
         label_lock_stt_text_3->setFont(font);
         label_lock_stt_text_3->setFrameShape(QFrame::NoFrame);
 
         horizontalLayout_6->addWidget(label_lock_stt_text_3);
 
-        label_lock_stt_3 = new QLabel(widget3);
+        label_lock_stt_3 = new QLabel(layoutWidget3);
         label_lock_stt_3->setObjectName(QString::fromUtf8("label_lock_stt_3"));
         label_lock_stt_3->setFrameShape(QFrame::Box);
 
@@ -635,14 +649,14 @@ public:
 
         horizontalLayout_7 = new QHBoxLayout();
         horizontalLayout_7->setObjectName(QString::fromUtf8("horizontalLayout_7"));
-        label_lock_stt_text_4 = new QLabel(widget3);
+        label_lock_stt_text_4 = new QLabel(layoutWidget3);
         label_lock_stt_text_4->setObjectName(QString::fromUtf8("label_lock_stt_text_4"));
         label_lock_stt_text_4->setFont(font);
         label_lock_stt_text_4->setFrameShape(QFrame::NoFrame);
 
         horizontalLayout_7->addWidget(label_lock_stt_text_4);
 
-        label_lock_stt_4 = new QLabel(widget3);
+        label_lock_stt_4 = new QLabel(layoutWidget3);
         label_lock_stt_4->setObjectName(QString::fromUtf8("label_lock_stt_4"));
         label_lock_stt_4->setFrameShape(QFrame::Box);
 
@@ -654,7 +668,7 @@ public:
         SmartHome->setCentralWidget(centralwidget);
         menubar = new QMenuBar(SmartHome);
         menubar->setObjectName(QString::fromUtf8("menubar"));
-        menubar->setGeometry(QRect(0, 0, 732, 20));
+        menubar->setGeometry(QRect(0, 0, 908, 20));
         menuSetting = new QMenu(menubar);
         menuSetting->setObjectName(QString::fromUtf8("menuSetting"));
         menuTh_ng_tin = new QMenu(menubar);
@@ -685,14 +699,17 @@ public:
         label_lock_stt_text_8->setText(QApplication::translate("SmartHome", "T\341\273\261 \304\221\341\273\231ng b\341\272\255t \304\221\303\250n h\303\240nh lang", nullptr));
         pushButton_7->setText(QApplication::translate("SmartHome", "+", nullptr));
         label->setText(QApplication::translate("SmartHome", "\304\221\341\272\277n", nullptr));
+        pushButton_10->setText(QApplication::translate("SmartHome", "X\303\263a c\303\240i \304\221\341\272\267t", nullptr));
         checkBox_2->setText(QString());
         label_lock_stt_text_7->setText(QApplication::translate("SmartHome", "T\341\273\261 \304\221\341\273\231ng b\341\272\255t qu\341\272\241t", nullptr));
         pushButton_8->setText(QApplication::translate("SmartHome", "+", nullptr));
         label_2->setText(QApplication::translate("SmartHome", "\304\221\341\272\277n", nullptr));
+        pushButton_11->setText(QApplication::translate("SmartHome", "X\303\263a c\303\240i \304\221\341\272\267t", nullptr));
         checkBox->setText(QString());
         label_lock_stt_text_5->setText(QApplication::translate("SmartHome", "T\341\273\261 \304\221\341\273\231ng b\341\272\255t \304\221\303\250n trong nh\303\240", nullptr));
         pushButton_9->setText(QApplication::translate("SmartHome", "+", nullptr));
         label_3->setText(QApplication::translate("SmartHome", "\304\221\341\272\277n", nullptr));
+        pushButton_12->setText(QApplication::translate("SmartHome", "X\303\263a c\303\240i \304\221\341\272\267t", nullptr));
         comboBox_com_list->setCurrentText(QString());
         pushButton_refresh_com->setText(QApplication::translate("SmartHome", "L\303\240m m\341\273\233i", nullptr));
         pushButton_connect->setText(QApplication::translate("SmartHome", "K\341\272\277t N\341\273\221i", nullptr));
@@ -706,7 +723,6 @@ public:
         pushButton_4->setText(QApplication::translate("SmartHome", "M\341\273\237", nullptr));
         pushButton_5->setText(QApplication::translate("SmartHome", "M\341\273\237", nullptr));
         pushButton_6->setText(QApplication::translate("SmartHome", "M\341\273\237", nullptr));
-        label_5->setText(QString());
         label_lock_stt_text->setText(QApplication::translate("SmartHome", "Kh\303\263a c\341\273\255a ch\303\255nh", nullptr));
         label_lock_stt->setText(QApplication::translate("SmartHome", "xxx", nullptr));
         label_lock_stt_text_9->setText(QApplication::translate("SmartHome", "Tr\341\272\241ng th\303\241i \304\221\303\250n ph\303\262ng ng\341\273\247", nullptr));

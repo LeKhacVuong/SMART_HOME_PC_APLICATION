@@ -6,6 +6,7 @@ SmartHome::SmartHome(QWidget *parent)
     , ui(new Ui::SmartHome)
 {
     ui->setupUi(this);
+    ui->verticalLayout_7->setEnabled(false);
 }
 
 SmartHome::~SmartHome()

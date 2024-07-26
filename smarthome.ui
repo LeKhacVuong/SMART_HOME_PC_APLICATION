@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>732</width>
-    <height>573</height>
+    <width>908</width>
+    <height>575</height>
    </rect>
   </property>
   <property name="maximumSize">
@@ -33,12 +33,12 @@
      <string/>
     </property>
    </widget>
-   <widget class="QWidget" name="">
+   <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
       <x>10</x>
       <y>270</y>
-      <width>701</width>
+      <width>878</width>
       <height>250</height>
      </rect>
     </property>
@@ -135,6 +135,13 @@
           </widget>
          </item>
         </layout>
+       </item>
+       <item>
+        <widget class="QPushButton" name="pushButton_10">
+         <property name="text">
+          <string>Xóa cài đặt</string>
+         </property>
+        </widget>
        </item>
        <item>
         <widget class="QListWidget" name="listWidget"/>
@@ -235,6 +242,13 @@
         </layout>
        </item>
        <item>
+        <widget class="QPushButton" name="pushButton_11">
+         <property name="text">
+          <string>Xóa cài đặt</string>
+         </property>
+        </widget>
+       </item>
+       <item>
         <widget class="QListWidget" name="listWidget_2"/>
        </item>
       </layout>
@@ -333,19 +347,26 @@
         </layout>
        </item>
        <item>
+        <widget class="QPushButton" name="pushButton_12">
+         <property name="text">
+          <string>Xóa cài đặt</string>
+         </property>
+        </widget>
+       </item>
+       <item>
         <widget class="QListWidget" name="listWidget_3"/>
        </item>
       </layout>
      </item>
     </layout>
    </widget>
-   <widget class="QWidget" name="">
+   <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>20</y>
-      <width>261</width>
-      <height>171</height>
+      <y>10</y>
+      <width>411</width>
+      <height>241</height>
      </rect>
     </property>
     <layout class="QVBoxLayout" name="verticalLayout_8">
@@ -417,6 +438,12 @@
          </item>
          <item>
           <widget class="QLabel" name="label_dev_sn">
+           <property name="maximumSize">
+            <size>
+             <width>200</width>
+             <height>35</height>
+            </size>
+           </property>
            <property name="frameShape">
             <enum>QFrame::Box</enum>
            </property>
@@ -447,6 +474,12 @@
          </item>
          <item>
           <widget class="QLabel" name="label_dev_stt">
+           <property name="maximumSize">
+            <size>
+             <width>200</width>
+             <height>35</height>
+            </size>
+           </property>
            <property name="frameShape">
             <enum>QFrame::Box</enum>
            </property>
@@ -461,13 +494,13 @@
      </item>
     </layout>
    </widget>
-   <widget class="QWidget" name="">
+   <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
-      <x>630</x>
-      <y>20</y>
-      <width>82</width>
-      <height>215</height>
+      <x>780</x>
+      <y>10</y>
+      <width>91</width>
+      <height>161</height>
      </rect>
     </property>
     <layout class="QVBoxLayout" name="verticalLayout_6">
@@ -513,21 +546,14 @@
        </property>
       </widget>
      </item>
-     <item>
-      <widget class="QLabel" name="label_5">
-       <property name="text">
-        <string/>
-       </property>
-      </widget>
-     </item>
     </layout>
    </widget>
-   <widget class="QWidget" name="">
+   <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
-      <x>290</x>
-      <y>21</y>
-      <width>331</width>
+      <x>430</x>
+      <y>10</y>
+      <width>341</width>
       <height>241</height>
      </rect>
     </property>
@@ -810,7 +836,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>732</width>
+     <width>908</width>
      <height>20</height>
     </rect>
    </property>
