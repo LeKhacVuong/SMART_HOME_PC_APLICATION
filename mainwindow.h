@@ -12,6 +12,14 @@
 
 #define DEV_NAME "SMART HOME DEV"
 
+enum LIGHT{
+    BED_LIGHT,
+    LIVING_LIGHT,
+    KITCHEN_LIGHT,
+    HALLWAY_LIGHT,
+    LIGHT_NUMBER
+};
+
 typedef struct devTime_t{
     uint8_t m_hour;
     uint8_t m_min;
@@ -37,10 +45,7 @@ typedef struct dev_info_t{
     uint8_t m_fireBuzzer;
     uint8_t m_hallwayDetectHuman;
 
-    light_info_t m_bedLight;
-    light_info_t m_livingLight;
-    light_info_t m_kitchenLight;
-    light_info_t m_hallwayLight;
+    light_info_t m_light[LIGHT_NUMBER];
 }dev_info_t;
 
 QT_BEGIN_NAMESPACE
@@ -96,6 +101,26 @@ private slots:
 
     void on_pushButton_coiBaoChay_clicked();
 
+    void on_checkBox_nhanDangNguoiHl_stateChanged(int arg1){}
+
+    void on_checkBox_nhanDangNguoiHl_clicked();
+
+    void on_pushButton_autoKhach_clicked();
+
+    void on_pushButton_autoNgu_clicked();
+
+    void on_pushButton_autoBep_clicked();
+
+    void on_pushButton_autoHl_clicked();
+
+    void on_horizontalSlider_denKhach_sliderReleased();
+
+    void on_horizontalSlider_denNgu_sliderReleased();
+
+    void on_horizontalSlider_denBep_sliderReleased();
+
+    void on_horizontalSlider_denHanhLang_sliderReleased();
+
 private:
     Ui::MainWindow *ui;
 
@@ -106,7 +131,7 @@ private:
 
     sm_host_t* m_host;
 
-    std::atomic <bool> m_busBusy = false;
+    std::atomic <bool> m_isSliding = false;
 
 };
 #endif // MAINWINDOW_H
