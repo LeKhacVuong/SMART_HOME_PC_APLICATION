@@ -10,20 +10,18 @@ CONFIG += c++17
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    host/sm_host.c \
     main.cpp \
     mainwindow.cpp \
-    # mb_master/sm_mb_master_impl.c \
-    mb_master/sm_mb_master_impl.c \
-    nanoModbus/nanomodbus.c \
+    utils/CRC.c \
     utils/sm_logger.c \
     utils/timing/DateTime.cpp
 
 HEADERS += \
+    host/sm_cmd.h \
+    host/sm_host.h \
     mainwindow.h \
-    mb_master/sm_mb_master_if.h \
-    mb_master/sm_mb_master_impl.h \
-    mb_master/sm_modbus_define.h \
-    nanoModbus/nanomodbus.h \
+    utils/CRC.h \
     utils/sm_logger.h \
     utils/timing/DateTime.h \
     utils/timing/TimeUtils.h \
@@ -31,10 +29,9 @@ HEADERS += \
     utils/timing/elapsed_timer.h
 
 INCLUDEPATH += \
-    nanoModbus/ \
-    mb_master/ \
     utils/ \
     utils/timing \
+    host/
 
 FORMS += \
     mainwindow.ui

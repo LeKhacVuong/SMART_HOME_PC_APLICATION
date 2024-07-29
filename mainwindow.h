@@ -5,12 +5,43 @@
 #include <QBluetoothDeviceDiscoveryAgent>
 #include <QBluetoothSocket>
 #include <QTime>
-#include "Timer.h"
-#include "sm_mb_master_impl.h"
+#include <atomic>
 #include "mutex"
-
+#include <QTimer>
+#include "sm_host.h"
 
 #define DEV_NAME "SMART HOME DEV"
+
+typedef struct devTime_t{
+    uint8_t m_hour;
+    uint8_t m_min;
+}devTime_t;
+
+typedef struct light_info_t{
+    uint8_t m_stt;
+    uint8_t m_brightness;
+    uint8_t m_auto;
+    devTime_t m_autoConfigStart[3];
+    devTime_t m_autoConfigStop[3];
+}light_info_t;
+
+typedef struct dev_info_t{
+    devTime_t m_devTime;
+
+    uint8_t m_doorStt;
+    uint8_t m_bedFan;
+    uint8_t m_humidity;
+    uint8_t m_temperature;
+    uint8_t m_fireSensor;
+    uint8_t m_smokeSensor;
+    uint8_t m_fireBuzzer;
+    uint8_t m_hallwayDetectHuman;
+
+    light_info_t m_bedLight;
+    light_info_t m_livingLight;
+    light_info_t m_kitchenLight;
+    light_info_t m_hallwayLight;
+}dev_info_t;
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -30,9 +61,13 @@ public:
 
     QBluetoothSocket *m_socket = new QBluetoothSocket(QBluetoothServiceInfo::RfcommProtocol);
 
+    dev_info_t m_devInfo;
 
+    void updateDisplay();
 
 private slots:
+    void timerHandle();
+
     void on_pushButton_lamMoiBL_clicked();
 
     void onDevFound(const QBluetoothDeviceInfo &dev);
@@ -44,7 +79,6 @@ private slots:
     void on_socketConnected();
 
     void on_pushButton_test_clicked();
-
 
     void on_pushButton_ghiTimeTb_clicked();
 
@@ -66,12 +100,13 @@ private:
     Ui::MainWindow *ui;
 
     QBluetoothDeviceDiscoveryAgent *m_argent = new QBluetoothDeviceDiscoveryAgent;
-    QVector <QBluetoothDeviceInfo> m_devInfo;
-
-
-    sm_mb_master_t* m_mb_master;
+    QVector <QBluetoothDeviceInfo> m_bluetoothDev;
 
     std::mutex m_lock;
+
+    sm_host_t* m_host;
+
+    std::atomic <bool> m_busBusy = false;
 
 };
 #endif // MAINWINDOW_H
