@@ -83,8 +83,6 @@ public:
     QLabel *label_lock_stt_text_7;
     QLabel *label_coiBaoChay;
     QPushButton *pushButton_coiBaoChay;
-    QLabel *label_7;
-    QCheckBox *checkBox_logging;
     QWidget *layoutWidget1;
     QHBoxLayout *horizontalLayout_2;
     QVBoxLayout *verticalLayout;
@@ -195,6 +193,13 @@ public:
     QLabel *label_4;
     QTimeEdit *timeEdit_Hl_33;
     QPushButton *pushButton_timeHlConfig_3;
+    QWidget *tab;
+    QWidget *layoutWidget_4;
+    QHBoxLayout *horizontalLayout_36;
+    QTimeEdit *timeEdit_quat_1;
+    QLabel *label_15;
+    QTimeEdit *timeEdit_quat_11;
+    QPushButton *pushButton_autoQuat;
     QWidget *layoutWidget4;
     QVBoxLayout *verticalLayout_2;
     QLabel *label;
@@ -214,6 +219,11 @@ public:
     QVBoxLayout *verticalLayout_11;
     QWidget *layoutWidget6;
     QVBoxLayout *verticalLayout_12;
+    QWidget *layoutWidget7;
+    QHBoxLayout *horizontalLayout_35;
+    QLabel *label_7;
+    QCheckBox *checkBox_logging;
+    QPushButton *pushButton_xoaLog;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -592,18 +602,6 @@ public:
 
         verticalLayout_8->addLayout(horizontalLayout_19);
 
-        label_7 = new QLabel(centralwidget);
-        label_7->setObjectName("label_7");
-        label_7->setGeometry(QRect(11, 89, 74, 21));
-        label_7->setMaximumSize(QSize(16777215, 50));
-        QFont font2;
-        font2.setPointSize(6);
-        label_7->setFont(font2);
-        label_7->setFrameShape(QFrame::Shape::StyledPanel);
-        checkBox_logging = new QCheckBox(centralwidget);
-        checkBox_logging->setObjectName("checkBox_logging");
-        checkBox_logging->setGeometry(QRect(60, 90, 18, 18));
-        checkBox_logging->setChecked(true);
         layoutWidget1 = new QWidget(centralwidget);
         layoutWidget1->setObjectName("layoutWidget1");
         layoutWidget1->setGeometry(QRect(10, 10, 301, 67));
@@ -649,8 +647,10 @@ public:
         listWidget_logging = new QListWidget(centralwidget);
         listWidget_logging->setObjectName("listWidget_logging");
         listWidget_logging->setEnabled(true);
-        listWidget_logging->setGeometry(QRect(10, 110, 301, 241));
-        listWidget_logging->setFont(font);
+        listWidget_logging->setGeometry(QRect(10, 120, 301, 231));
+        QFont font2;
+        font2.setPointSize(7);
+        listWidget_logging->setFont(font2);
         listWidget_logging->setFrameShape(QFrame::Shape::Box);
         listWidget_logging->setSelectionBehavior(QAbstractItemView::SelectionBehavior::SelectItems);
         tabWidget = new QTabWidget(centralwidget);
@@ -1218,6 +1218,39 @@ public:
         verticalLayout_9->addLayout(verticalLayout_7);
 
         tabWidget->addTab(tab_hanhLang, QString());
+        tab = new QWidget();
+        tab->setObjectName("tab");
+        layoutWidget_4 = new QWidget(tab);
+        layoutWidget_4->setObjectName("layoutWidget_4");
+        layoutWidget_4->setGeometry(QRect(10, 30, 271, 25));
+        horizontalLayout_36 = new QHBoxLayout(layoutWidget_4);
+        horizontalLayout_36->setObjectName("horizontalLayout_36");
+        horizontalLayout_36->setContentsMargins(0, 0, 0, 0);
+        timeEdit_quat_1 = new QTimeEdit(layoutWidget_4);
+        timeEdit_quat_1->setObjectName("timeEdit_quat_1");
+        timeEdit_quat_1->setCurrentSection(QDateTimeEdit::Section::HourSection);
+
+        horizontalLayout_36->addWidget(timeEdit_quat_1);
+
+        label_15 = new QLabel(layoutWidget_4);
+        label_15->setObjectName("label_15");
+
+        horizontalLayout_36->addWidget(label_15);
+
+        timeEdit_quat_11 = new QTimeEdit(layoutWidget_4);
+        timeEdit_quat_11->setObjectName("timeEdit_quat_11");
+        timeEdit_quat_11->setCurrentSection(QDateTimeEdit::Section::HourSection);
+
+        horizontalLayout_36->addWidget(timeEdit_quat_11);
+
+        pushButton_autoQuat = new QPushButton(layoutWidget_4);
+        pushButton_autoQuat->setObjectName("pushButton_autoQuat");
+        pushButton_autoQuat->setMaximumSize(QSize(80, 16777215));
+        pushButton_autoQuat->setFont(font);
+
+        horizontalLayout_36->addWidget(pushButton_autoQuat);
+
+        tabWidget->addTab(tab, QString());
         layoutWidget4 = new QWidget(centralwidget);
         layoutWidget4->setObjectName("layoutWidget4");
         layoutWidget4->setGeometry(QRect(340, 450, 311, 169));
@@ -1326,10 +1359,38 @@ public:
         verticalLayout_12 = new QVBoxLayout(layoutWidget6);
         verticalLayout_12->setObjectName("verticalLayout_12");
         verticalLayout_12->setContentsMargins(0, 0, 0, 0);
+        layoutWidget7 = new QWidget(centralwidget);
+        layoutWidget7->setObjectName("layoutWidget7");
+        layoutWidget7->setGeometry(QRect(10, 90, 191, 27));
+        horizontalLayout_35 = new QHBoxLayout(layoutWidget7);
+        horizontalLayout_35->setObjectName("horizontalLayout_35");
+        horizontalLayout_35->setContentsMargins(0, 0, 0, 0);
+        label_7 = new QLabel(layoutWidget7);
+        label_7->setObjectName("label_7");
+        label_7->setMaximumSize(QSize(16777215, 50));
+        QFont font4;
+        font4.setPointSize(6);
+        label_7->setFont(font4);
+        label_7->setFrameShape(QFrame::Shape::StyledPanel);
+
+        horizontalLayout_35->addWidget(label_7);
+
+        checkBox_logging = new QCheckBox(layoutWidget7);
+        checkBox_logging->setObjectName("checkBox_logging");
+        checkBox_logging->setMaximumSize(QSize(30, 16777215));
+        checkBox_logging->setChecked(true);
+
+        horizontalLayout_35->addWidget(checkBox_logging);
+
+        pushButton_xoaLog = new QPushButton(layoutWidget7);
+        pushButton_xoaLog->setObjectName("pushButton_xoaLog");
+
+        horizontalLayout_35->addWidget(pushButton_xoaLog);
+
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName("menubar");
-        menubar->setGeometry(QRect(0, 0, 679, 26));
+        menubar->setGeometry(QRect(0, 0, 679, 22));
         MainWindow->setMenuBar(menubar);
         statusbar = new QStatusBar(MainWindow);
         statusbar->setObjectName("statusbar");
@@ -1337,7 +1398,7 @@ public:
 
         retranslateUi(MainWindow);
 
-        tabWidget->setCurrentIndex(0);
+        tabWidget->setCurrentIndex(3);
 
 
         QMetaObject::connectSlotsByName(MainWindow);
@@ -1382,8 +1443,6 @@ public:
         label_lock_stt_text_7->setText(QCoreApplication::translate("MainWindow", "C\303\262i b\303\241o ch\303\241y", nullptr));
         label_coiBaoChay->setText(QCoreApplication::translate("MainWindow", "xxx", nullptr));
         pushButton_coiBaoChay->setText(QCoreApplication::translate("MainWindow", "B\341\272\255t", nullptr));
-        label_7->setText(QCoreApplication::translate("MainWindow", "Logging", nullptr));
-        checkBox_logging->setText(QString());
         pushButton_lamMoiBL->setText(QCoreApplication::translate("MainWindow", "L\303\240m m\341\273\233i", nullptr));
         pushButton_ketNoi->setText(QCoreApplication::translate("MainWindow", "K\341\272\277t n\341\273\221i", nullptr));
         pushButton_test->setText(QCoreApplication::translate("MainWindow", "Test", nullptr));
@@ -1453,11 +1512,19 @@ public:
         timeEdit_Hl_33->setDisplayFormat(QCoreApplication::translate("MainWindow", "h:mm", nullptr));
         pushButton_timeHlConfig_3->setText(QCoreApplication::translate("MainWindow", "C\303\240i", nullptr));
         tabWidget->setTabText(tabWidget->indexOf(tab_hanhLang), QCoreApplication::translate("MainWindow", "H\303\240nh lang", nullptr));
+        timeEdit_quat_1->setDisplayFormat(QCoreApplication::translate("MainWindow", "h:mm", nullptr));
+        label_15->setText(QCoreApplication::translate("MainWindow", "\304\221\341\272\277n", nullptr));
+        timeEdit_quat_11->setDisplayFormat(QCoreApplication::translate("MainWindow", "h:mm", nullptr));
+        pushButton_autoQuat->setText(QCoreApplication::translate("MainWindow", "B\341\272\255t", nullptr));
+        tabWidget->setTabText(tabWidget->indexOf(tab), QCoreApplication::translate("MainWindow", "qu\341\272\241t ng\341\273\247", nullptr));
         label->setText(QCoreApplication::translate("MainWindow", "                          \304\220\341\273\231 s\303\241ng \304\221\303\250n", nullptr));
         lineEdit->setText(QCoreApplication::translate("MainWindow", "Kh\303\241ch", nullptr));
         lineEdit_2->setText(QCoreApplication::translate("MainWindow", "Ng\341\273\247", nullptr));
         lineEdit_4->setText(QCoreApplication::translate("MainWindow", "B\341\272\277p", nullptr));
         lineEdit_3->setText(QCoreApplication::translate("MainWindow", "H\303\240nh lang", nullptr));
+        label_7->setText(QCoreApplication::translate("MainWindow", "Logging", nullptr));
+        checkBox_logging->setText(QString());
+        pushButton_xoaLog->setText(QCoreApplication::translate("MainWindow", "X\303\263a", nullptr));
     } // retranslateUi
 
 };

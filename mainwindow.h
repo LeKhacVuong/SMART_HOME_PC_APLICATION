@@ -7,8 +7,10 @@
 #include <QTime>
 #include <atomic>
 #include "mutex"
+#include "Timer.h"
 #include <QTimer>
 #include "sm_host.h"
+#include <QCloseEvent>
 
 #define DEV_NAME "SMART HOME DEV"
 
@@ -45,6 +47,10 @@ typedef struct dev_info_t{
     uint8_t m_fireBuzzer;
     uint8_t m_hallwayDetectHuman;
 
+    uint8_t m_autoFan;
+    devTime_t m_autoFanStart;
+    devTime_t m_autoFanStop;
+
     light_info_t m_light[LIGHT_NUMBER];
 }dev_info_t;
 
@@ -69,6 +75,9 @@ public:
     dev_info_t m_devInfo;
 
     void updateDisplay();
+
+protected:
+    void closeEvent (QCloseEvent *event);
 
 private slots:
     void timerHandle();
@@ -121,15 +130,47 @@ private slots:
 
     void on_horizontalSlider_denHanhLang_sliderReleased();
 
+    void on_pushButton_timeKhachConfig_1_clicked();
+
+    void on_pushButton_timeKhachConfig_2_clicked();
+
+    void on_pushButton_timeKhachConfig_3_clicked();
+
+    void on_pushButton_timeNguConfig_1_clicked();
+
+    void on_pushButton_timeNguConfig_2_clicked();
+
+    void on_pushButton_timeNguConfig_3_clicked();
+
+    void on_pushButton_timeBepConfig_1_clicked();
+
+    void on_pushButton_timeBepConfig_2_clicked();
+
+    void on_pushButton_timeHlConfig_1_clicked();
+
+    void on_pushButton_timeHlConfig_2_clicked();
+
+    void on_pushButton_timeHlConfig_3_clicked();
+
+    void on_pushButton_timeBepConfig_3_clicked();
+
+    void on_pushButton_xoaLog_clicked();
+
+    void on_pushButton_autoQuat_clicked();
+
 private:
     Ui::MainWindow *ui;
 
     QBluetoothDeviceDiscoveryAgent *m_argent = new QBluetoothDeviceDiscoveryAgent;
     QVector <QBluetoothDeviceInfo> m_bluetoothDev;
 
+    void sendTimeConfig(uint8_t light, uint8_t cfId);
+
     std::mutex m_lock;
 
     sm_host_t* m_host;
+
+    WaitTimer m_syncPeriod;
 
     std::atomic <bool> m_isSliding = false;
 

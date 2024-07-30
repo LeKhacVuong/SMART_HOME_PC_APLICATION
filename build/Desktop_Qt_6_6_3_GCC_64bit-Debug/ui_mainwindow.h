@@ -83,8 +83,6 @@ public:
     QLabel *label_lock_stt_text_7;
     QLabel *label_coiBaoChay;
     QPushButton *pushButton_coiBaoChay;
-    QLabel *label_7;
-    QCheckBox *checkBox_logging;
     QWidget *layoutWidget1;
     QHBoxLayout *horizontalLayout_2;
     QVBoxLayout *verticalLayout;
@@ -214,6 +212,11 @@ public:
     QVBoxLayout *verticalLayout_11;
     QWidget *layoutWidget6;
     QVBoxLayout *verticalLayout_12;
+    QWidget *widget;
+    QHBoxLayout *horizontalLayout_35;
+    QLabel *label_7;
+    QCheckBox *checkBox_logging;
+    QPushButton *pushButton_xoaLog;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -592,18 +595,6 @@ public:
 
         verticalLayout_8->addLayout(horizontalLayout_19);
 
-        label_7 = new QLabel(centralwidget);
-        label_7->setObjectName("label_7");
-        label_7->setGeometry(QRect(11, 89, 74, 21));
-        label_7->setMaximumSize(QSize(16777215, 50));
-        QFont font2;
-        font2.setPointSize(6);
-        label_7->setFont(font2);
-        label_7->setFrameShape(QFrame::Shape::StyledPanel);
-        checkBox_logging = new QCheckBox(centralwidget);
-        checkBox_logging->setObjectName("checkBox_logging");
-        checkBox_logging->setGeometry(QRect(60, 90, 18, 18));
-        checkBox_logging->setChecked(true);
         layoutWidget1 = new QWidget(centralwidget);
         layoutWidget1->setObjectName("layoutWidget1");
         layoutWidget1->setGeometry(QRect(10, 10, 301, 67));
@@ -649,7 +640,7 @@ public:
         listWidget_logging = new QListWidget(centralwidget);
         listWidget_logging->setObjectName("listWidget_logging");
         listWidget_logging->setEnabled(true);
-        listWidget_logging->setGeometry(QRect(10, 110, 301, 241));
+        listWidget_logging->setGeometry(QRect(10, 120, 301, 231));
         listWidget_logging->setFont(font);
         listWidget_logging->setFrameShape(QFrame::Shape::Box);
         listWidget_logging->setSelectionBehavior(QAbstractItemView::SelectionBehavior::SelectItems);
@@ -1226,11 +1217,11 @@ public:
         verticalLayout_2->setContentsMargins(0, 0, 0, 0);
         label = new QLabel(layoutWidget4);
         label->setObjectName("label");
-        QFont font3;
-        font3.setFamilies({QString::fromUtf8("Ubuntu")});
-        font3.setPointSize(10);
-        font3.setBold(true);
-        label->setFont(font3);
+        QFont font2;
+        font2.setFamilies({QString::fromUtf8("Ubuntu")});
+        font2.setPointSize(10);
+        font2.setBold(true);
+        label->setFont(font2);
 
         verticalLayout_2->addWidget(label);
 
@@ -1326,10 +1317,38 @@ public:
         verticalLayout_12 = new QVBoxLayout(layoutWidget6);
         verticalLayout_12->setObjectName("verticalLayout_12");
         verticalLayout_12->setContentsMargins(0, 0, 0, 0);
+        widget = new QWidget(centralwidget);
+        widget->setObjectName("widget");
+        widget->setGeometry(QRect(10, 90, 191, 27));
+        horizontalLayout_35 = new QHBoxLayout(widget);
+        horizontalLayout_35->setObjectName("horizontalLayout_35");
+        horizontalLayout_35->setContentsMargins(0, 0, 0, 0);
+        label_7 = new QLabel(widget);
+        label_7->setObjectName("label_7");
+        label_7->setMaximumSize(QSize(16777215, 50));
+        QFont font3;
+        font3.setPointSize(6);
+        label_7->setFont(font3);
+        label_7->setFrameShape(QFrame::Shape::StyledPanel);
+
+        horizontalLayout_35->addWidget(label_7);
+
+        checkBox_logging = new QCheckBox(widget);
+        checkBox_logging->setObjectName("checkBox_logging");
+        checkBox_logging->setMaximumSize(QSize(30, 16777215));
+        checkBox_logging->setChecked(true);
+
+        horizontalLayout_35->addWidget(checkBox_logging);
+
+        pushButton_xoaLog = new QPushButton(widget);
+        pushButton_xoaLog->setObjectName("pushButton_xoaLog");
+
+        horizontalLayout_35->addWidget(pushButton_xoaLog);
+
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName("menubar");
-        menubar->setGeometry(QRect(0, 0, 679, 26));
+        menubar->setGeometry(QRect(0, 0, 679, 22));
         MainWindow->setMenuBar(menubar);
         statusbar = new QStatusBar(MainWindow);
         statusbar->setObjectName("statusbar");
@@ -1337,7 +1356,7 @@ public:
 
         retranslateUi(MainWindow);
 
-        tabWidget->setCurrentIndex(0);
+        tabWidget->setCurrentIndex(2);
 
 
         QMetaObject::connectSlotsByName(MainWindow);
@@ -1382,8 +1401,6 @@ public:
         label_lock_stt_text_7->setText(QCoreApplication::translate("MainWindow", "C\303\262i b\303\241o ch\303\241y", nullptr));
         label_coiBaoChay->setText(QCoreApplication::translate("MainWindow", "xxx", nullptr));
         pushButton_coiBaoChay->setText(QCoreApplication::translate("MainWindow", "B\341\272\255t", nullptr));
-        label_7->setText(QCoreApplication::translate("MainWindow", "Logging", nullptr));
-        checkBox_logging->setText(QString());
         pushButton_lamMoiBL->setText(QCoreApplication::translate("MainWindow", "L\303\240m m\341\273\233i", nullptr));
         pushButton_ketNoi->setText(QCoreApplication::translate("MainWindow", "K\341\272\277t n\341\273\221i", nullptr));
         pushButton_test->setText(QCoreApplication::translate("MainWindow", "Test", nullptr));
@@ -1458,6 +1475,9 @@ public:
         lineEdit_2->setText(QCoreApplication::translate("MainWindow", "Ng\341\273\247", nullptr));
         lineEdit_4->setText(QCoreApplication::translate("MainWindow", "B\341\272\277p", nullptr));
         lineEdit_3->setText(QCoreApplication::translate("MainWindow", "H\303\240nh lang", nullptr));
+        label_7->setText(QCoreApplication::translate("MainWindow", "Logging", nullptr));
+        checkBox_logging->setText(QString());
+        pushButton_xoaLog->setText(QCoreApplication::translate("MainWindow", "X\303\263a", nullptr));
     } // retranslateUi
 
 };

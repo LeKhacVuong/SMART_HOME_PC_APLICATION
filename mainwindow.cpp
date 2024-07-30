@@ -1,15 +1,14 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include "sm_logger.h"
-#include "Timer.h"
 #include <QThread>
+#include "QMessageBox"
 
 
 QListWidget* g_logging_list;
 QCheckBox* g_logging_enable;
 
 #define TAG "main"
-
 
 typedef struct ligh_dev_t{
     QTimeEdit* timeStart[3];
@@ -57,7 +56,6 @@ int32_t serialHostRecvIfDefault(uint8_t *_buf, int32_t _len, int32_t _timeout, v
 int32_t host_receive_cmd_callback(int32_t _cmd, const uint8_t* _data, int32_t _len, void* _arg ) {
     auto* app = (MainWindow*) _arg;
     if(_cmd == CMD_HOLDING_DEV_SEND_SYNC_DATA){
-        // qDebug() << "Sync data form device size: " << QString::number(_len);
         memcpy(&app->m_devInfo, _data, sizeof(dev_info_t));
         app->updateDisplay();
     }
@@ -77,7 +75,8 @@ void log_put(const char* _log) {
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
-    , ui(new Ui::MainWindow)
+    , ui(new Ui::MainWindow),
+    m_syncPeriod(5000)
 {
     ui->setupUi(this);
     g_logging_list = ui->listWidget_logging;
@@ -99,7 +98,7 @@ MainWindow::MainWindow(QWidget *parent)
     m_host = sm_host_create(SM_HOST_ASYNC_MODE, 0x99, serialHostSendIfDefault, serialHostRecvIfDefault, this);
     sm_host_reg_handle(m_host, host_receive_cmd_callback, this);
 
-
+    m_syncPeriod.reset(5000);
 
     g_light_auto[BED_LIGHT] = ui->label_autoNgu;
     g_light_auto[LIVING_LIGHT] = ui->label_autoKhach;
@@ -125,12 +124,6 @@ MainWindow::MainWindow(QWidget *parent)
     g_auto_bt[LIVING_LIGHT] = ui->pushButton_autoKhach;
     g_auto_bt[HALLWAY_LIGHT] = ui->pushButton_autoHl;
     g_auto_bt[KITCHEN_LIGHT] = ui->pushButton_autoBep;
-
-    for (int i = 0; i < 5; ++i) {
-        connect(g_ligh_brg[i], &QSlider::sliderPressed, this, [this]() {
-            m_isSliding = true;
-        });
-    }
 
     light_cf[KITCHEN_LIGHT].setTime[0] = ui->pushButton_timeBepConfig_1;
     light_cf[KITCHEN_LIGHT].setTime[1] = ui->pushButton_timeBepConfig_2;
@@ -182,7 +175,28 @@ MainWindow::MainWindow(QWidget *parent)
     light_cf[HALLWAY_LIGHT].timeStop[2] = ui->timeEdit_Hl_33;
 
 
+    for(int i = 0; i < LIGHT_NUMBER; i++){
+        connect(g_ligh_brg[i], &QSlider::sliderPressed, this, [this]() {m_isSliding = true;});
+        connect(g_ligh_brg[i], &QSlider::sliderReleased, this, [this]() {m_isSliding = false;});
+        for(int cf = 0; cf < 3; cf++){
+            connect(light_cf[i].timeStart[cf], &QTimeEdit::timeChanged, this, [this](){m_syncPeriod.reset(15000);});
+            connect(light_cf[i].timeStop[cf], &QTimeEdit::timeChanged, this, [this](){m_syncPeriod.reset(15000);});
+        }
+    }
+
+    connect(ui->timeEdit_quat_1, &QTimeEdit::timeChanged, this, [this](){m_syncPeriod.reset(15000);});
+    connect(ui->timeEdit_quat_11, &QTimeEdit::timeChanged, this, [this](){m_syncPeriod.reset(15000);});
 }
+
+void MainWindow::closeEvent (QCloseEvent *event){
+    if(QMessageBox::question(this, "Thoát ứng dụng?", "Xác nhận") == QMessageBox::No){
+        event->ignore();
+        return;
+    }
+
+    event->accept();
+}
+
 
 void MainWindow::updateDisplay(){
     char timeString[6];
@@ -207,39 +221,64 @@ void MainWindow::updateDisplay(){
         }
 
         if(m_devInfo.m_light[id].m_auto){
-            g_light_auto[id]->setText("Mở");
+            g_light_auto[id]->setText("Bật");
             g_auto_bt[id]->setText("Tắt");
             for(int i = 0; i < 3; i++){
+                light_cf[id].setTime[i]->setEnabled(true);
                 QTime Start(m_devInfo.m_light[id].m_autoConfigStart[i].m_hour, m_devInfo.m_light[id].m_autoConfigStart[i].m_min);
                 light_cf[id].timeStart[i]->setTime(Start);
                 QTime Stop(m_devInfo.m_light[id].m_autoConfigStop[i].m_hour, m_devInfo.m_light[id].m_autoConfigStop[i].m_min);
-                light_cf[id].timeStart[i]->setTime(Stop);
+                light_cf[id].timeStop[i]->setTime(Stop);
 
                 if(Start.hour() || Start.minute() || Stop.hour() || Stop.minute()){
                     light_cf[id].setTime[i]->setText("Xóa");
+                    light_cf[id].timeStart[i]->setEnabled(false);
+                    light_cf[id].timeStop[i]->setEnabled(false);
                 }else{
                     light_cf[id].setTime[i]->setText("Cài");
+                    light_cf[id].timeStart[i]->setEnabled(true);
+                    light_cf[id].timeStop[i]->setEnabled(true);
                 }
             }
         }else{
             g_light_auto[id]->setText("Tắt");
-            g_auto_bt[id]->setText("Mở");
+            g_auto_bt[id]->setText("Bật");
 
             for(int i = 0; i < 3; i++){
                 QTime Start(0, 0);
                 light_cf[id].timeStart[i]->setTime(Start);
                 QTime Stop(0, 0);
-                light_cf[id].timeStart[i]->setTime(Stop);
+                light_cf[id].timeStop[i]->setTime(Stop);
                 light_cf[id].setTime[i]->setText("Cài");
+                light_cf[id].setTime[i]->setEnabled(false);
+                light_cf[id].timeStart[i]->setEnabled(false);
+                light_cf[id].timeStop[i]->setEnabled(false);
             }
-
         }
 
         if(!m_isSliding){
             g_ligh_brg[id]->setValue(m_devInfo.m_light[id].m_brightness);
         }
-
     }
+
+    if(m_devInfo.m_autoFan){
+        ui->pushButton_autoQuat->setText("Tắt");
+        ui->timeEdit_quat_1->setEnabled(false);
+        ui->timeEdit_quat_11->setEnabled(false);
+        QTime Start(m_devInfo.m_autoFanStart.m_hour, m_devInfo.m_autoFanStart.m_min);
+        ui->timeEdit_quat_1->setTime(Start);
+        QTime Stop(m_devInfo.m_autoFanStop.m_hour, m_devInfo.m_autoFanStop.m_min);
+        ui->timeEdit_quat_11->setTime(Stop);
+    }else{
+        ui->pushButton_autoQuat->setText("Bật");
+        ui->timeEdit_quat_1->setEnabled(true);
+        ui->timeEdit_quat_11->setEnabled(true);
+        QTime Start(0, 0);
+        ui->timeEdit_quat_1->setTime(Start);
+        QTime Stop(0, 0);
+        ui->timeEdit_quat_11->setTime(Stop);
+    }
+
 
     if(m_devInfo.m_bedFan){
         ui->label_quatNgu->setText("Mở");
@@ -286,6 +325,7 @@ void MainWindow::on_socketConnected(){
     ui->pushButton_ketNoi->setText("Ngắt kết nối");
     ui->pushButton_ketNoi->setEnabled(true);
     m_socket->readAll();
+    on_pushButton_ghiTimeTb_clicked();
 }
 
 void MainWindow::on_socketStateChanged(QBluetoothSocket::SocketState _state)
@@ -327,8 +367,12 @@ void MainWindow::timerHandle(){
     if(len > 0){
         sm_host_asyn_feed((const uint8_t*)buf, len, m_host);
     }
-
     sm_host_process(m_host);
+
+    if(!m_syncPeriod.getRemainTime()){
+        on_pushButton_ghiTimeTb_clicked();
+        m_syncPeriod.reset(5000);
+    }
 }
 
 void MainWindow::on_pushButton_lamMoiBL_clicked()
@@ -496,7 +540,7 @@ void MainWindow::on_pushButton_autoBep_clicked()
 
     uint8_t data[2];
     data[0] = KITCHEN_LIGHT;
-    data[1] = !m_devInfo.m_light[BED_LIGHT].m_auto;
+    data[1] = !m_devInfo.m_light[KITCHEN_LIGHT].m_auto;
     sm_host_send_cmd(m_host, CMD_HOLDING_SET_AUTO_LIGHT, data, 2);
 }
 
@@ -550,5 +594,188 @@ void MainWindow::on_horizontalSlider_denHanhLang_sliderReleased()
 
     uint8_t data = ui->horizontalSlider_denHanhLang->value();
     sm_host_send_cmd(m_host, CMD_HOLDING_SET_HALLWAY_BRIGHTNESS, &data, 1);
+}
+
+
+
+void MainWindow::sendTimeConfig(uint8_t light, uint8_t cfId){
+    if(!m_isConnect)
+        return;
+
+    if(light_cf[light].setTime[cfId]->text() == "Xóa"){
+        uint8_t data[2];
+        data[0] = light;
+        data[1] = cfId;
+        sm_host_send_cmd(m_host, CMD_HOLDING_DELETE_AUTO_TIME, data, 2);
+        LOG_INF(TAG, "Clear config %d of light %d", cfId, light);
+    }else{
+        uint8_t startHour = light_cf[light].timeStart[cfId]->time().hour();
+        uint8_t startMin = light_cf[light].timeStart[cfId]->time().minute();
+
+        uint8_t stopHour = light_cf[light].timeStop[cfId]->time().hour();
+        uint8_t stopMin = light_cf[light].timeStop[cfId]->time().minute();
+
+        if((startHour != stopHour) || (startMin != stopMin)){
+            uint8_t data[6];
+            data[0] = light;
+            data[1] = cfId;
+            data[2] = startHour;
+            data[3] = startMin;
+            data[4] = stopHour;
+            data[5] = stopMin;
+
+            sm_host_send_cmd(m_host, CMD_HOLDING_SET_AUTO_TIME, data, 6);
+            LOG_INF(TAG, "Set config %d of light %d", cfId, light);
+        }else{
+            LOG_ERR(TAG, "Cannot set time invalid");
+        }
+    }
+}
+
+void MainWindow::on_pushButton_timeKhachConfig_1_clicked()
+{
+    if(!m_isConnect)
+        return;
+
+    sendTimeConfig(LIVING_LIGHT, 0);
+}
+
+
+void MainWindow::on_pushButton_timeKhachConfig_2_clicked()
+{
+    if(!m_isConnect)
+        return;
+
+    sendTimeConfig(LIVING_LIGHT, 1);
+}
+
+
+void MainWindow::on_pushButton_timeKhachConfig_3_clicked()
+{
+    if(!m_isConnect)
+        return;
+
+    sendTimeConfig(LIVING_LIGHT, 2);
+}
+
+
+void MainWindow::on_pushButton_timeNguConfig_1_clicked()
+{
+    if(!m_isConnect)
+        return;
+
+    sendTimeConfig(BED_LIGHT, 0);
+}
+
+
+void MainWindow::on_pushButton_timeNguConfig_2_clicked()
+{
+    if(!m_isConnect)
+        return;
+
+    sendTimeConfig(BED_LIGHT, 1);
+}
+
+
+void MainWindow::on_pushButton_timeNguConfig_3_clicked()
+{
+    if(!m_isConnect)
+        return;
+
+    sendTimeConfig(BED_LIGHT, 2);
+}
+
+
+void MainWindow::on_pushButton_timeBepConfig_1_clicked()
+{
+    if(!m_isConnect)
+        return;
+
+    sendTimeConfig(KITCHEN_LIGHT, 0);
+}
+
+
+void MainWindow::on_pushButton_timeBepConfig_2_clicked()
+{
+    if(!m_isConnect)
+        return;
+
+    sendTimeConfig(KITCHEN_LIGHT, 1);
+}
+
+
+void MainWindow::on_pushButton_timeBepConfig_3_clicked()
+{
+    if(!m_isConnect)
+        return;
+
+    sendTimeConfig(KITCHEN_LIGHT, 2);
+}
+
+void MainWindow::on_pushButton_timeHlConfig_1_clicked()
+{
+    if(!m_isConnect)
+        return;
+
+    sendTimeConfig(HALLWAY_LIGHT, 0);
+}
+
+
+void MainWindow::on_pushButton_timeHlConfig_2_clicked()
+{
+    if(!m_isConnect)
+        return;
+
+    sendTimeConfig(HALLWAY_LIGHT, 1);
+}
+
+
+void MainWindow::on_pushButton_timeHlConfig_3_clicked()
+{
+    if(!m_isConnect)
+        return;
+
+    sendTimeConfig(HALLWAY_LIGHT, 2);
+}
+
+
+
+
+void MainWindow::on_pushButton_xoaLog_clicked()
+{
+    if(g_logging_list){
+        g_logging_list->clear();
+    }
+}
+
+
+void MainWindow::on_pushButton_autoQuat_clicked()
+{
+    if(!m_isConnect)
+        return;
+
+    if(!m_devInfo.m_autoFan){
+        uint8_t startHour = ui->timeEdit_quat_1->time().hour();
+        uint8_t startMin = ui->timeEdit_quat_1->time().minute();
+
+        uint8_t stopHour = ui->timeEdit_quat_11->time().hour();
+        uint8_t stopMin = ui->timeEdit_quat_11->time().minute();
+
+        if((startHour != stopHour) || (startMin != stopMin)){
+            uint8_t data[5];
+            data[0] = 1;
+            data[1] = startHour;
+            data[2] = startMin;
+            data[3] = stopHour;
+            data[4] = stopMin;
+            sm_host_send_cmd(m_host, CMD_HOLDING_SET_AUTO_FAN, data, 5);
+            LOG_INF(TAG, "Set auto fan time");
+        }else{
+            LOG_ERR(TAG, "Cannot set time invalid");
+        }
+    }else{
+        uint8_t data = 0;
+        sm_host_send_cmd(m_host, CMD_HOLDING_SET_AUTO_FAN, &data, 1);
+    }
 }
 
