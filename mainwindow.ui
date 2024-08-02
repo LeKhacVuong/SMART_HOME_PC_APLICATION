@@ -1948,7 +1948,7 @@
         <x>10</x>
         <y>30</y>
         <width>271</width>
-        <height>25</height>
+        <height>27</height>
        </rect>
       </property>
       <layout class="QHBoxLayout" name="horizontalLayout_36">
@@ -2054,7 +2054,7 @@
           </size>
          </property>
          <property name="maximum">
-          <number>100</number>
+          <number>99</number>
          </property>
          <property name="orientation">
           <enum>Qt::Orientation::Horizontal</enum>
@@ -2092,7 +2092,7 @@
           </size>
          </property>
          <property name="maximum">
-          <number>100</number>
+          <number>99</number>
          </property>
          <property name="orientation">
           <enum>Qt::Orientation::Horizontal</enum>
@@ -2130,7 +2130,7 @@
           </size>
          </property>
          <property name="maximum">
-          <number>100</number>
+          <number>99</number>
          </property>
          <property name="orientation">
           <enum>Qt::Orientation::Horizontal</enum>
@@ -2168,7 +2168,7 @@
           </size>
          </property>
          <property name="maximum">
-          <number>100</number>
+          <number>99</number>
          </property>
          <property name="orientation">
           <enum>Qt::Orientation::Horizontal</enum>
@@ -2207,7 +2207,7 @@
       <x>10</x>
       <y>90</y>
       <width>191</width>
-      <height>27</height>
+      <height>32</height>
      </rect>
     </property>
     <layout class="QHBoxLayout" name="horizontalLayout_35">
@@ -2264,7 +2264,7 @@
      <x>0</x>
      <y>0</y>
      <width>679</width>
-     <height>22</height>
+     <height>26</height>
     </rect>
    </property>
   </widget>

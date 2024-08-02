@@ -625,7 +625,7 @@ void MainWindow::sendTimeConfig(uint8_t light, uint8_t cfId){
             data[5] = stopMin;
 
             sm_host_send_cmd(m_host, CMD_HOLDING_SET_AUTO_TIME, data, 6);
-            LOG_INF(TAG, "Set config %d of light %d", cfId, light);
+            LOG_INF(TAG, "Set config %d of light %d from ", cfId, light);
         }else{
             LOG_ERR(TAG, "Cannot set time invalid");
         }

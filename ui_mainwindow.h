@@ -1222,7 +1222,7 @@ public:
         tab->setObjectName("tab");
         layoutWidget_4 = new QWidget(tab);
         layoutWidget_4->setObjectName("layoutWidget_4");
-        layoutWidget_4->setGeometry(QRect(10, 30, 271, 25));
+        layoutWidget_4->setGeometry(QRect(10, 30, 271, 27));
         horizontalLayout_36 = new QHBoxLayout(layoutWidget_4);
         horizontalLayout_36->setObjectName("horizontalLayout_36");
         horizontalLayout_36->setContentsMargins(0, 0, 0, 0);
@@ -1279,7 +1279,7 @@ public:
         horizontalSlider_denKhach = new QSlider(layoutWidget4);
         horizontalSlider_denKhach->setObjectName("horizontalSlider_denKhach");
         horizontalSlider_denKhach->setMaximumSize(QSize(200, 16777215));
-        horizontalSlider_denKhach->setMaximum(100);
+        horizontalSlider_denKhach->setMaximum(99);
         horizontalSlider_denKhach->setOrientation(Qt::Orientation::Horizontal);
 
         horizontalLayout_3->addWidget(horizontalSlider_denKhach);
@@ -1299,7 +1299,7 @@ public:
         horizontalSlider_denNgu = new QSlider(layoutWidget4);
         horizontalSlider_denNgu->setObjectName("horizontalSlider_denNgu");
         horizontalSlider_denNgu->setMaximumSize(QSize(200, 16777215));
-        horizontalSlider_denNgu->setMaximum(100);
+        horizontalSlider_denNgu->setMaximum(99);
         horizontalSlider_denNgu->setOrientation(Qt::Orientation::Horizontal);
 
         horizontalLayout_8->addWidget(horizontalSlider_denNgu);
@@ -1319,7 +1319,7 @@ public:
         horizontalSlider_denBep = new QSlider(layoutWidget4);
         horizontalSlider_denBep->setObjectName("horizontalSlider_denBep");
         horizontalSlider_denBep->setMaximumSize(QSize(200, 16777215));
-        horizontalSlider_denBep->setMaximum(100);
+        horizontalSlider_denBep->setMaximum(99);
         horizontalSlider_denBep->setOrientation(Qt::Orientation::Horizontal);
 
         horizontalLayout_11->addWidget(horizontalSlider_denBep);
@@ -1339,7 +1339,7 @@ public:
         horizontalSlider_denHanhLang = new QSlider(layoutWidget4);
         horizontalSlider_denHanhLang->setObjectName("horizontalSlider_denHanhLang");
         horizontalSlider_denHanhLang->setMaximumSize(QSize(200, 16777215));
-        horizontalSlider_denHanhLang->setMaximum(100);
+        horizontalSlider_denHanhLang->setMaximum(99);
         horizontalSlider_denHanhLang->setOrientation(Qt::Orientation::Horizontal);
 
         horizontalLayout_10->addWidget(horizontalSlider_denHanhLang);
@@ -1361,7 +1361,7 @@ public:
         verticalLayout_12->setContentsMargins(0, 0, 0, 0);
         layoutWidget7 = new QWidget(centralwidget);
         layoutWidget7->setObjectName("layoutWidget7");
-        layoutWidget7->setGeometry(QRect(10, 90, 191, 27));
+        layoutWidget7->setGeometry(QRect(10, 90, 191, 32));
         horizontalLayout_35 = new QHBoxLayout(layoutWidget7);
         horizontalLayout_35->setObjectName("horizontalLayout_35");
         horizontalLayout_35->setContentsMargins(0, 0, 0, 0);
@@ -1390,7 +1390,7 @@ public:
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName("menubar");
-        menubar->setGeometry(QRect(0, 0, 679, 22));
+        menubar->setGeometry(QRect(0, 0, 679, 26));
         MainWindow->setMenuBar(menubar);
         statusbar = new QStatusBar(MainWindow);
         statusbar->setObjectName("statusbar");
