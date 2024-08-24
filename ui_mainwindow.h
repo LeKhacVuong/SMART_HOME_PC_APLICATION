@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'mainwindow.ui'
 **
-** Created by: Qt User Interface Compiler version 6.6.3
+** Created by: Qt User Interface Compiler version 6.7.2
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -10,14 +10,15 @@
 #define UI_MAINWINDOW_H
 
 #include <QtCore/QVariant>
+#include <QtGui/QAction>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QCheckBox>
 #include <QtWidgets/QComboBox>
 #include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QLabel>
-#include <QtWidgets/QLineEdit>
 #include <QtWidgets/QListWidget>
 #include <QtWidgets/QMainWindow>
+#include <QtWidgets/QMenu>
 #include <QtWidgets/QMenuBar>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QSlider>
@@ -32,6 +33,7 @@ QT_BEGIN_NAMESPACE
 class Ui_MainWindow
 {
 public:
+    QAction *action_changeDoorKey;
     QWidget *centralwidget;
     QWidget *layoutWidget;
     QVBoxLayout *verticalLayout_8;
@@ -204,16 +206,16 @@ public:
     QVBoxLayout *verticalLayout_2;
     QLabel *label;
     QHBoxLayout *horizontalLayout_3;
-    QLineEdit *lineEdit;
+    QLabel *label_lock_stt_text_8;
     QSlider *horizontalSlider_denKhach;
     QHBoxLayout *horizontalLayout_8;
-    QLineEdit *lineEdit_2;
+    QLabel *label_lock_stt_text_9;
     QSlider *horizontalSlider_denNgu;
     QHBoxLayout *horizontalLayout_11;
-    QLineEdit *lineEdit_4;
+    QLabel *label_lock_stt_text_10;
     QSlider *horizontalSlider_denBep;
     QHBoxLayout *horizontalLayout_10;
-    QLineEdit *lineEdit_3;
+    QLabel *label_lock_stt_text_14;
     QSlider *horizontalSlider_denHanhLang;
     QWidget *layoutWidget5;
     QVBoxLayout *verticalLayout_11;
@@ -225,6 +227,7 @@ public:
     QCheckBox *checkBox_logging;
     QPushButton *pushButton_xoaLog;
     QMenuBar *menubar;
+    QMenu *menuC_i_t;
     QStatusBar *statusbar;
 
     void setupUi(QMainWindow *MainWindow)
@@ -232,6 +235,8 @@ public:
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName("MainWindow");
         MainWindow->resize(679, 674);
+        action_changeDoorKey = new QAction(MainWindow);
+        action_changeDoorKey->setObjectName("action_changeDoorKey");
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName("centralwidget");
         layoutWidget = new QWidget(centralwidget);
@@ -1269,12 +1274,12 @@ public:
 
         horizontalLayout_3 = new QHBoxLayout();
         horizontalLayout_3->setObjectName("horizontalLayout_3");
-        lineEdit = new QLineEdit(layoutWidget4);
-        lineEdit->setObjectName("lineEdit");
-        lineEdit->setMaximumSize(QSize(90, 16777215));
-        lineEdit->setFont(font);
+        label_lock_stt_text_8 = new QLabel(layoutWidget4);
+        label_lock_stt_text_8->setObjectName("label_lock_stt_text_8");
+        label_lock_stt_text_8->setFont(font1);
+        label_lock_stt_text_8->setFrameShape(QFrame::Shape::NoFrame);
 
-        horizontalLayout_3->addWidget(lineEdit);
+        horizontalLayout_3->addWidget(label_lock_stt_text_8);
 
         horizontalSlider_denKhach = new QSlider(layoutWidget4);
         horizontalSlider_denKhach->setObjectName("horizontalSlider_denKhach");
@@ -1289,12 +1294,12 @@ public:
 
         horizontalLayout_8 = new QHBoxLayout();
         horizontalLayout_8->setObjectName("horizontalLayout_8");
-        lineEdit_2 = new QLineEdit(layoutWidget4);
-        lineEdit_2->setObjectName("lineEdit_2");
-        lineEdit_2->setMaximumSize(QSize(90, 16777215));
-        lineEdit_2->setFont(font);
+        label_lock_stt_text_9 = new QLabel(layoutWidget4);
+        label_lock_stt_text_9->setObjectName("label_lock_stt_text_9");
+        label_lock_stt_text_9->setFont(font1);
+        label_lock_stt_text_9->setFrameShape(QFrame::Shape::NoFrame);
 
-        horizontalLayout_8->addWidget(lineEdit_2);
+        horizontalLayout_8->addWidget(label_lock_stt_text_9);
 
         horizontalSlider_denNgu = new QSlider(layoutWidget4);
         horizontalSlider_denNgu->setObjectName("horizontalSlider_denNgu");
@@ -1309,12 +1314,12 @@ public:
 
         horizontalLayout_11 = new QHBoxLayout();
         horizontalLayout_11->setObjectName("horizontalLayout_11");
-        lineEdit_4 = new QLineEdit(layoutWidget4);
-        lineEdit_4->setObjectName("lineEdit_4");
-        lineEdit_4->setMaximumSize(QSize(90, 16777215));
-        lineEdit_4->setFont(font);
+        label_lock_stt_text_10 = new QLabel(layoutWidget4);
+        label_lock_stt_text_10->setObjectName("label_lock_stt_text_10");
+        label_lock_stt_text_10->setFont(font1);
+        label_lock_stt_text_10->setFrameShape(QFrame::Shape::NoFrame);
 
-        horizontalLayout_11->addWidget(lineEdit_4);
+        horizontalLayout_11->addWidget(label_lock_stt_text_10);
 
         horizontalSlider_denBep = new QSlider(layoutWidget4);
         horizontalSlider_denBep->setObjectName("horizontalSlider_denBep");
@@ -1329,12 +1334,12 @@ public:
 
         horizontalLayout_10 = new QHBoxLayout();
         horizontalLayout_10->setObjectName("horizontalLayout_10");
-        lineEdit_3 = new QLineEdit(layoutWidget4);
-        lineEdit_3->setObjectName("lineEdit_3");
-        lineEdit_3->setMaximumSize(QSize(90, 16777215));
-        lineEdit_3->setFont(font);
+        label_lock_stt_text_14 = new QLabel(layoutWidget4);
+        label_lock_stt_text_14->setObjectName("label_lock_stt_text_14");
+        label_lock_stt_text_14->setFont(font1);
+        label_lock_stt_text_14->setFrameShape(QFrame::Shape::NoFrame);
 
-        horizontalLayout_10->addWidget(lineEdit_3);
+        horizontalLayout_10->addWidget(label_lock_stt_text_14);
 
         horizontalSlider_denHanhLang = new QSlider(layoutWidget4);
         horizontalSlider_denHanhLang->setObjectName("horizontalSlider_denHanhLang");
@@ -1390,11 +1395,16 @@ public:
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName("menubar");
-        menubar->setGeometry(QRect(0, 0, 679, 26));
+        menubar->setGeometry(QRect(0, 0, 679, 27));
+        menuC_i_t = new QMenu(menubar);
+        menuC_i_t->setObjectName("menuC_i_t");
         MainWindow->setMenuBar(menubar);
         statusbar = new QStatusBar(MainWindow);
         statusbar->setObjectName("statusbar");
         MainWindow->setStatusBar(statusbar);
+
+        menubar->addAction(menuC_i_t->menuAction());
+        menuC_i_t->addAction(action_changeDoorKey);
 
         retranslateUi(MainWindow);
 
@@ -1406,7 +1416,8 @@ public:
 
     void retranslateUi(QMainWindow *MainWindow)
     {
-        MainWindow->setWindowTitle(QCoreApplication::translate("MainWindow", "MainWindow", nullptr));
+        MainWindow->setWindowTitle(QCoreApplication::translate("MainWindow", "Smart Home", nullptr));
+        action_changeDoorKey->setText(QCoreApplication::translate("MainWindow", "\304\220\341\273\225i m\341\272\255t kh\341\272\251u", nullptr));
         label_lock_stt_text_17->setText(QCoreApplication::translate("MainWindow", "Th\341\273\235i gian thi\341\272\277t b\341\273\213", nullptr));
         label_timeTb->setText(QCoreApplication::translate("MainWindow", "xxx", nullptr));
         pushButton_ghiTimeTb->setText(QCoreApplication::translate("MainWindow", "C\341\272\255p nh\341\272\255t", nullptr));
@@ -1445,7 +1456,7 @@ public:
         pushButton_coiBaoChay->setText(QCoreApplication::translate("MainWindow", "B\341\272\255t", nullptr));
         pushButton_lamMoiBL->setText(QCoreApplication::translate("MainWindow", "L\303\240m m\341\273\233i", nullptr));
         pushButton_ketNoi->setText(QCoreApplication::translate("MainWindow", "K\341\272\277t n\341\273\221i", nullptr));
-        pushButton_test->setText(QCoreApplication::translate("MainWindow", "Test", nullptr));
+        pushButton_test->setText(QCoreApplication::translate("MainWindow", "?", nullptr));
         label_lock_stt_text_24->setText(QCoreApplication::translate("MainWindow", "T\341\273\261 \304\221\341\273\231ng", nullptr));
         label_autoKhach->setText(QCoreApplication::translate("MainWindow", "xxx", nullptr));
         pushButton_autoKhach->setText(QCoreApplication::translate("MainWindow", "B\341\272\255t", nullptr));
@@ -1518,13 +1529,14 @@ public:
         pushButton_autoQuat->setText(QCoreApplication::translate("MainWindow", "B\341\272\255t", nullptr));
         tabWidget->setTabText(tabWidget->indexOf(tab), QCoreApplication::translate("MainWindow", "qu\341\272\241t ng\341\273\247", nullptr));
         label->setText(QCoreApplication::translate("MainWindow", "                          \304\220\341\273\231 s\303\241ng \304\221\303\250n", nullptr));
-        lineEdit->setText(QCoreApplication::translate("MainWindow", "Kh\303\241ch", nullptr));
-        lineEdit_2->setText(QCoreApplication::translate("MainWindow", "Ng\341\273\247", nullptr));
-        lineEdit_4->setText(QCoreApplication::translate("MainWindow", "B\341\272\277p", nullptr));
-        lineEdit_3->setText(QCoreApplication::translate("MainWindow", "H\303\240nh lang", nullptr));
+        label_lock_stt_text_8->setText(QCoreApplication::translate("MainWindow", "Kh\303\241ch", nullptr));
+        label_lock_stt_text_9->setText(QCoreApplication::translate("MainWindow", "Ng\341\273\247", nullptr));
+        label_lock_stt_text_10->setText(QCoreApplication::translate("MainWindow", "B\341\272\277p", nullptr));
+        label_lock_stt_text_14->setText(QCoreApplication::translate("MainWindow", "H\303\240nh lang", nullptr));
         label_7->setText(QCoreApplication::translate("MainWindow", "Logging", nullptr));
         checkBox_logging->setText(QString());
         pushButton_xoaLog->setText(QCoreApplication::translate("MainWindow", "X\303\263a", nullptr));
+        menuC_i_t->setTitle(QCoreApplication::translate("MainWindow", "C\303\240i \304\221\341\272\267t", nullptr));
     } // retranslateUi
 
 };

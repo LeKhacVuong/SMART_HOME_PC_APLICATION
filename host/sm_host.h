@@ -35,6 +35,8 @@ sm_host_t* sm_host_create(uint8_t _mode, uint8_t _addr, sm_host_send_if _host_se
 sm_host_t* sm_host_create_default(uint8_t _mode, uint8_t _addr, sm_host_send_if _host_send_if, sm_host_recv_if _host_receive_if, void* _if_arg);
 int32_t    sm_host_destroy(sm_host_t* _host);
 
+void sm_host_clear(sm_host_t* _host);
+
 int32_t sm_host_set_mode(sm_host_t* _host, uint8_t _mode);
 int32_t sm_host_get_mode(sm_host_t* _host);
 

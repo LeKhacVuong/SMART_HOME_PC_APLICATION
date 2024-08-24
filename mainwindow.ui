@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>Smart Home</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QWidget" name="layoutWidget">
@@ -894,7 +894,7 @@
         </font>
        </property>
        <property name="text">
-        <string>Test</string>
+        <string>?</string>
        </property>
       </widget>
      </item>
@@ -2028,17 +2028,15 @@
      <item>
       <layout class="QHBoxLayout" name="horizontalLayout_3">
        <item>
-        <widget class="QLineEdit" name="lineEdit">
-         <property name="maximumSize">
-          <size>
-           <width>90</width>
-           <height>16777215</height>
-          </size>
-         </property>
+        <widget class="QLabel" name="label_lock_stt_text_8">
          <property name="font">
           <font>
            <pointsize>8</pointsize>
+           <bold>true</bold>
           </font>
+         </property>
+         <property name="frameShape">
+          <enum>QFrame::Shape::NoFrame</enum>
          </property>
          <property name="text">
           <string>Khách</string>
@@ -2066,17 +2064,15 @@
      <item>
       <layout class="QHBoxLayout" name="horizontalLayout_8">
        <item>
-        <widget class="QLineEdit" name="lineEdit_2">
-         <property name="maximumSize">
-          <size>
-           <width>90</width>
-           <height>16777215</height>
-          </size>
-         </property>
+        <widget class="QLabel" name="label_lock_stt_text_9">
          <property name="font">
           <font>
            <pointsize>8</pointsize>
+           <bold>true</bold>
           </font>
+         </property>
+         <property name="frameShape">
+          <enum>QFrame::Shape::NoFrame</enum>
          </property>
          <property name="text">
           <string>Ngủ</string>
@@ -2104,17 +2100,15 @@
      <item>
       <layout class="QHBoxLayout" name="horizontalLayout_11">
        <item>
-        <widget class="QLineEdit" name="lineEdit_4">
-         <property name="maximumSize">
-          <size>
-           <width>90</width>
-           <height>16777215</height>
-          </size>
-         </property>
+        <widget class="QLabel" name="label_lock_stt_text_10">
          <property name="font">
           <font>
            <pointsize>8</pointsize>
+           <bold>true</bold>
           </font>
+         </property>
+         <property name="frameShape">
+          <enum>QFrame::Shape::NoFrame</enum>
          </property>
          <property name="text">
           <string>Bếp</string>
@@ -2142,17 +2136,15 @@
      <item>
       <layout class="QHBoxLayout" name="horizontalLayout_10">
        <item>
-        <widget class="QLineEdit" name="lineEdit_3">
-         <property name="maximumSize">
-          <size>
-           <width>90</width>
-           <height>16777215</height>
-          </size>
-         </property>
+        <widget class="QLabel" name="label_lock_stt_text_14">
          <property name="font">
           <font>
            <pointsize>8</pointsize>
+           <bold>true</bold>
           </font>
+         </property>
+         <property name="frameShape">
+          <enum>QFrame::Shape::NoFrame</enum>
          </property>
          <property name="text">
           <string>Hành lang</string>
@@ -2264,11 +2256,23 @@
      <x>0</x>
      <y>0</y>
      <width>679</width>
-     <height>26</height>
+     <height>27</height>
     </rect>
    </property>
+   <widget class="QMenu" name="menuC_i_t">
+    <property name="title">
+     <string>Cài đặt</string>
+    </property>
+    <addaction name="action_changeDoorKey"/>
+   </widget>
+   <addaction name="menuC_i_t"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
+  <action name="action_changeDoorKey">
+   <property name="text">
+    <string>Đổi mật khẩu</string>
+   </property>
+  </action>
  </widget>
  <resources/>
  <connections/>

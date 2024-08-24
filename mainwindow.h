@@ -40,10 +40,7 @@ typedef struct dev_info_t{
 
     uint8_t m_doorStt;
     uint8_t m_bedFan;
-    uint8_t m_humidity;
-    uint8_t m_temperature;
     uint8_t m_fireSensor;
-    uint8_t m_smokeSensor;
     uint8_t m_fireBuzzer;
     uint8_t m_hallwayDetectHuman;
 
@@ -52,6 +49,14 @@ typedef struct dev_info_t{
     devTime_t m_autoFanStop;
 
     light_info_t m_light[LIGHT_NUMBER];
+
+    uint8_t m_isFire;
+
+    char m_doorKey[8];
+
+    uint8_t m_humi;
+    uint8_t m_temp;
+
 }dev_info_t;
 
 QT_BEGIN_NAMESPACE
@@ -68,6 +73,8 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
+    void enableUi(bool _enable);
+
     std::atomic <bool> m_isConnect = false;
 
     QBluetoothSocket *m_socket = new QBluetoothSocket(QBluetoothServiceInfo::RfcommProtocol);
@@ -75,6 +82,16 @@ public:
     dev_info_t m_devInfo;
 
     void updateDisplay();
+
+    WaitTimer m_syncPeriod;
+
+    std::atomic<bool> m_isWaitResponse = false;
+
+    WaitTimer m_responseTimeout;
+
+    void startWaitResponse();
+
+    void stopWaitResponse();
 
 protected:
     void closeEvent (QCloseEvent *event);
@@ -158,6 +175,8 @@ private slots:
 
     void on_pushButton_autoQuat_clicked();
 
+    void on_action_changeDoorKey_triggered();
+
 private:
     Ui::MainWindow *ui;
 
@@ -170,7 +189,7 @@ private:
 
     sm_host_t* m_host;
 
-    WaitTimer m_syncPeriod;
+    WaitTimer m_editTimer;
 
     std::atomic <bool> m_isSliding = false;
 

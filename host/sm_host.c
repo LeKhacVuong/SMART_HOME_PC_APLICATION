@@ -332,3 +332,8 @@ int32_t sm_host_asyn_feed(const uint8_t* _data, int32_t _len, void* _user_data){
     return 0;
 }
 
+
+void sm_host_clear(sm_host_t *_host){
+    sm_host_impl_t* host = (sm_host_impl_t*)_host;
+    host->m_buffer_index = host->m_process_index = 0;
+}
